@@ -16,7 +16,7 @@
 			$('#loader').load('viewers/admin/cadastro/produto.lista.php');
     	});
 		
-		$('#Voltar').click(function(e) {
+		$('#voltar').click(function(e) {
     	    e.preventDefault();
 			$('#loader').load('viewers/admin/cadastro/produto.lista.php');
 		});
@@ -133,7 +133,7 @@
 <br>
 
 <section class="btn-group" role="group" aria-label="...">
-    <button type="button" class="btn btn-warning" id="Voltar"> <span class="glyphicon glyphicon-chevron-left" arial-hidden="true"></span> Voltar</button>
+    <button type="button" class="btn btn-warning" id="voltar"> <span class="glyphicon glyphicon-chevron-left" arial-hidden="true"></span> Voltar</button>
     <button type="button" class="btn btn-success" id="Salvar"> <span class="glyphicon glyphicon glyphicon-floppy-saved" arial-hidden="true"></span> Salvar </button>
    	<button type="button" class="btn btn-danger" id="Excluir"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Excluir </button>
 </section>
