@@ -1,0 +1,50 @@
+
+body{
+	font-family: roboto medium, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#loader{
+	margin-top:3.5em;
+	min-height:562px;
+}
+
+.brfooter{
+	padding:1.5em;
+	background: #E9E9E9;
+	color:#111;
+}
+
+.DetalhesItem .EditarItem, .ExcluirItem{
+	transition: all .25s;	
+}
+
+.DetalhesItem:hover{
+	cursor:pointer;
+	background: rgba(58,242,13,.50);
+}
+
+.EditarItem:hover{
+	cursor:pointer;
+	background: rgba(56,187,235,.50);
+}
+
+.ExcluirItem:hover{
+	cursor:pointer;
+	background:rgba(217,95,97,.50);
+}
+
+teste:hover{
+	background: #9C9C9C;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+.color-link{
+	color: black;
+}
+
+.color-link:hover{
+	color: #6A6A6A;
+}
