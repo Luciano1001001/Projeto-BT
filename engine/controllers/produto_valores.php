@@ -2,21 +2,19 @@
 	require_once "../config.php";
 	
 	//parte1
-	$id_produto= $_POST['id_produto'];
-	$nome_produto= $_POST['nome_produto'];
-	$info_produto= $_POST['info_produto'];
-	$periodo_produto= $_POST['periodo_produto'];
-	$transporte_produto= $_POST['transporte_produto'];
-	$hospedagem_produto= $_POST['hospedagem_produto'];
-	$alimentacao_produto= $_POST['alimentacao_produto'];
-	$estrutura_produto= $_POST['estrutura_produto'];
+	$id_produto_valores= $_POST['id_produto_valores'];
+	$valor_produto= $_POST['valor_produto'];
+	$tipo_produto= $_POST['tipo_produto'];
+	$grupo_produto= $_POST['grupo_produto'];
+	$observacoes_produto= $_POST['observacoes_produto'];
+	$info_pagamento= $_POST['info_pagamento'];
 	
 	//parte2
 	$action = $_POST['action'];
 	
 	//parte3
-	$Item = new Produto();
-	$Item->SetValues($id_produto, $nome_produto, $info_produto, $periodo_produto, $transporte_produto, $hospedagem_produto, $alimentacao_produto, $estrutura_produto);
+	$Item = new Produto_valores();
+	$Item->SetValues($id_produto_valores, $valor_produto, $tipo_produto, $grupo_produto, $observacoes_produto, $info_pagamento);
 	
 	//parte4
 	switch($action){

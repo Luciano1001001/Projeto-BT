@@ -6,7 +6,8 @@
 	require_once "classes/produto.php";
 	require_once "classes/usuario.php";
 	require_once "classes/cliente.php";
-	require_once "classes/produto_detalhes.php";
+	require_once "classes/produto_pacotes.php";
+	require_once "classes/produto_valores.php";
 	
 	function ExibeData($data){
 		$dataCerta = explode('-', $data);

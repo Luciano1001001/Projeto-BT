@@ -33,12 +33,11 @@
 			var transporte_produto = $('#transporte_produto').val();
 			var hospedagem_produto = $('#hospedagem_produto').val();
 			var alimentacao_produto = $('#alimentacao_produto').val();
-			var observacoes_produto = $('#observacoes_produto').val();
 			var estrutura_produto = $('#estrutura_produto').val();
 			//Fim dos novos dados
 			
 			//validar os imputs
-			if(nome_produto === "" || info_produto === "" || periodo_produto === "" || transporte_produto === "" || hospedagem_produto === "" || alimentacao_produto === "" || observacoes_produto === "" || estrutura_produto === ""){
+			if(nome_produto === "" || info_produto === "" || periodo_produto === "" || transporte_produto === "" || hospedagem_produto === "" || alimentacao_produto === "" || estrutura_produto === ""){
 				return alert('Todods os campos com (*) devem ser preenchidos!!!');
 			}
 			else{
@@ -52,7 +51,6 @@
 							transporte_produto : transporte_produto,
 							hospedagem_produto : hospedagem_produto,
 							alimentacao_produto : alimentacao_produto,
-							observacoes_produto : observacoes_produto,
 							estrutura_produto : estrutura_produto,
 							
 							action: 'update'
@@ -91,7 +89,6 @@
 							transporte_produto : null,
 							hospedagem_produto : null,
 							alimentacao_produto : null,
-							observacoes_produto : null,
 							estrutura_produto : null,
 
 							action: 'delete'
@@ -191,17 +188,6 @@
   			<span class="input-group-addon verde-nx" id="basic-addon1">Alimentação *</span>
   			<textarea type="text" class="form-control" id="alimentacao_produto" placeholder="Informações sobre a alimentação..." aria-describedby="basic-addon1" rows="3"><?php echo $Item['alimentacao_produto']; ?></textarea>
 		</div>
-    </section>
-</section>
-
-<br/>
-
-<section class="row formAdicionadrDados">    
-    <section class="col-md-8">
-        <div class="input-group">
-            <span class="input-group-addon verde-nx" id="basic-addon1">Observações *</span>
-            <textarea type="text" class="form-control" id="observacoes_produto" placeholder="Informações do Produto..." aria-describedby="basic-addon1" rows="5"><?php echo $Item['observacoes_produto']; ?></textarea>
-        </div>
     </section>
 </section>
 

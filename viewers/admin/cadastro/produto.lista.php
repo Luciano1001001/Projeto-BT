@@ -56,7 +56,6 @@
 							transporte_produto : null,
 							hospedagem_produto : null,
 							alimentacao_produto : null,
-							observacoes_produto : null,
 							estrutura_produto : null,
 
 							action: 'delete'

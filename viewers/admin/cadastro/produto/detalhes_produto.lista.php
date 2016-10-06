@@ -42,7 +42,6 @@
 							transporte_produto : null,
 							hospedagem_produto : null,
 							alimentacao_produto : null,
-							observacoes_produto : null,
 							estrutura_produto : null,
 
 							action: 'delete'
@@ -144,17 +143,6 @@
   			<span class="input-group-addon verde-nx" id="basic-addon1">Alimentação *</span>
   			<textarea type="text" class="form-control" id="alimentacao_produto" placeholder="Informações sobre a alimentação..." aria-describedby="basic-addon1" rows="3" readonly><?php echo $Item['alimentacao_produto']; ?></textarea>
 		</div>
-    </section>
-</section>
-
-<br/>
-
-<section class="row formAdicionadrDados">    
-    <section class="col-md-8">
-        <div class="input-group">
-            <span class="input-group-addon verde-nx" id="basic-addon1">Observações *</span>
-            <textarea type="text" class="form-control" id="observacoes_produto" placeholder="Informações do Produto..." aria-describedby="basic-addon1" rows="5" readonly><?php echo $Item['observacoes_produto']; ?></textarea>
-        </div>
     </section>
 </section>
 

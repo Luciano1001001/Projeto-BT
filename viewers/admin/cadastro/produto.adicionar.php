@@ -15,12 +15,12 @@
 			$('#loader').load('viewers/admin/cadastro/produto.lista.php');
     	});
 		
-		$('#voltar').click(function(e) {
+		$('#Voltar').click(function(e) {
     	    e.preventDefault();
 			$('#loader').load('viewers/admin/cadastro/produto.lista.php');
 		});
 		
-		$('#Salvar').click(function(e) {
+		$('#Proximo').click(function(e) {
     	    e.preventDefault();
 			//1 instanciar e recuperar valores dos imputs
 			var nome_produto = $('#nome_produto').val();
@@ -31,12 +31,11 @@
 			var transporte_produto = $('#transporte_produto').val();
 			var hospedagem_produto = $('#hospedagem_produto').val();
 			var alimentacao_produto = $('#alimentacao_produto').val();
-			var observacoes_produto = $('#observacoes_produto').val();
 			var estrutura_produto = $('#estrutura_produto').val();
 			//Fim dos novos dados
 			
 			//validar os imputs
-			if(nome_produto === "" || info_produto === "" || periodo_produto === "" || transporte_produto === "" || hospedagem_produto === "" || alimentacao_produto === "" || observacoes_produto === "" || estrutura_produto === ""){
+			if(nome_produto === "" || info_produto === "" || periodo_produto === "" || transporte_produto === "" || hospedagem_produto === "" || alimentacao_produto === "" || estrutura_produto === ""){
 				return alert('Todods os campos com (*) devem ser preenchidos!!!');
 			}
 			else{
@@ -50,7 +49,6 @@
 							transporte_produto : transporte_produto,
 							hospedagem_produto : hospedagem_produto,
 							alimentacao_produto : alimentacao_produto,
-							observacoes_produto : observacoes_produto,
 							estrutura_produto : estrutura_produto,
 							
 							action: 'create'
@@ -62,7 +60,8 @@
 					   success: function(data) {
 							if(data === 'true'){
 								alert('Item adicionado com sucesso!');
-								$('#loader').load('viewers/admin/cadastro/produto.lista.php');
+								//$('#loader').load('viewers/admin/cadastro/produto.lista.php');
+								$('#loader').load('viewers/admin/cadastro/produto/produto_pacotes.adicionar.php');
 							}
 
 							else{
@@ -96,8 +95,13 @@
 <br>
 
 <section class="btn-group" role="group" aria-label="...">
-    <button type="button" class="btn btn-warning" id="voltar"> <span class="glyphicon glyphicon-chevron-left" arial-hidden="true"></span> Voltar</button>
-    <button type="button" class="btn btn-success" id="Salvar"> <span class="glyphicon glyphicon glyphicon-floppy-saved" arial-hidden="true"></span> Salvar </button>
+    <button type="button" class="btn btn-warning" id="Voltar"> <span class="glyphicon glyphicon-chevron-left" arial-hidden="true"></span> Voltar</button>
+    
+    <!-- Botão salvar
+    <button type="button" class="btn btn-success" id="Salvar"> <span class="glyphicon glyphicon glyphicon-floppy-saved" arial-hidden="true"></span> Salvar </button>-->
+    
+    <button type="button" class="btn btn-success" id="Proximo"> <span class="glyphicon glyphicon-chevron-right" arial-hidden="true"></span> Próximo </button>
+    
 </section>
 
 <br><br>
@@ -155,17 +159,6 @@
   			<span class="input-group-addon" id="basic-addon1">Alimentação *</span>
   			<textarea type="text" class="form-control" id="alimentacao_produto" placeholder="Informações sobre a alimentação..." aria-describedby="basic-addon1" rows="3"></textarea>
 		</div>
-    </section>
-</section>
-
-<br/>
-
-<section class="row formAdicionadrDados">
-	<section class="col-md-8">
-        <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">Observações *</span>
-            <textarea type="text" class="form-control" id="observacoes_produto" placeholder="Informações do Produto..." aria-describedby="basic-addon1" rows="5"></textarea>
-        </div>
     </section>
 </section>
 

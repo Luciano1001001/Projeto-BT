@@ -12,12 +12,11 @@
 		private $transporte_produto;
 		private $hospedagem_produto;
 		private $alimentacao_produto;
-		private $observacoes_produto;
 		private $estrutura_produto;
 
 		//setters
 		//Funcao que seta uma instancia da classe
-		public function SetValues($id_produto, $nome_produto, $info_produto, $periodo_produto, $transporte_produto, $hospedagem_produto, $alimentacao_produto, $observacoes_produto, $estrutura_produto){ 
+		public function SetValues($id_produto, $nome_produto, $info_produto, $periodo_produto, $transporte_produto, $hospedagem_produto, $alimentacao_produto, $estrutura_produto){ 
 			$this->id_produto = $id_produto;
 			$this->nome_produto = $nome_produto;
 			$this->info_produto = $info_produto;
@@ -25,7 +24,6 @@
 			$this->transporte_produto = $transporte_produto;
 			$this->hospedagem_produto = $hospedagem_produto;
 			$this->alimentacao_produto = $alimentacao_produto;
-			$this->observacoes_produto = $observacoes_produto;
 			$this->estrutura_produto = $estrutura_produto;
 		}
 		
@@ -43,7 +41,6 @@
 							transporte_produto,
 							hospedagem_produto,
 							alimentacao_produto,
-							observacoes_produto,
 							estrutura_produto
 						  )  
 				VALUES 
@@ -55,7 +52,6 @@
 						'$this->transporte_produto',
 						'$this->hospedagem_produto',
 						'$this->alimentacao_produto',
-						'$this->observacoes_produto',
 						'$this->estrutura_produto'
 					);
 			";
@@ -78,7 +74,6 @@
 					 t1.transporte_produto,
 					 t1.hospedagem_produto,
 					 t1.alimentacao_produto,
-					 t1.observacoes_produto,
 					 t1.estrutura_produto
 				FROM
 					produto AS t1
@@ -106,7 +101,6 @@
 					 t1.transporte_produto,
 					 t1.hospedagem_produto,
 					 t1.alimentacao_produto,
-					 t1.observacoes_produto,
 					 t1.estrutura_produto
 				FROM
 					produto AS t1
@@ -149,7 +143,6 @@
 					 t1.transporte_produto,
 					 t1.hospedagem_produto,
 					 t1.alimentacao_produto,
-					 t1.observacoes_produto,
 					 t1.estrutura_produto
 				FROM
 					produto AS t1
@@ -178,7 +171,6 @@
 				  transporte_produto = '$this->transporte_produto',
 				  hospedagem_produto = '$this->hospedagem_produto',
 				  alimentacao_produto = '$this->alimentacao_produto',
-				  observacoes_produto = '$this->observacoes_produto',
 				  estrutura_produto = '$this->estrutura_produto'	  
 				  
 				WHERE id_produto = '$this->id_produto';
@@ -234,7 +226,6 @@
 			$this->transporte_produto;
 			$this->hospedagem_produto;
 			$this->alimentacao_produto;
-			$this->observacoes_produto;
 			$this->estrutura_produto;
 		}
 		
@@ -247,7 +238,6 @@
 			$this->transporte_produto;
 			$this->hospedagem_produto;
 			$this->alimentacao_produto;
-			$this->observacoes_produto;
 			$this->estrutura_produto;
 		}	
 	};
