@@ -10,17 +10,19 @@
 		private $tipo_produto;
 		private $grupo_produto;
 		private $observacoes_produto;
-		private $info_pagamento;	
+		private $info_pagamento;
+		private $fk_produto;
 
 		//setters
 		//Funcao que seta uma instancia da classe
-		public function SetValues($id_produto_valores, $valor_produto, $tipo_produto, $grupo_produto, $observacoes_produto, $info_pagamento){ 
+		public function SetValues($id_produto_valores, $valor_produto, $tipo_produto, $grupo_produto, $observacoes_produto, $info_pagamento, $fk_produto){ 
 			$this->id_produto_valores = $id_produto_valores;
 			$this->valor_produto = $valor_produto;
 			$this->tipo_produto = $tipo_produto;
 			$this->grupo_produto = $grupo_produto;
 			$this->observacoes_produto = $observacoes_produto;
 			$this->info_pagamento = $info_pagamento;
+			$this->fk_produto = $fk_produto;
 		}
 		
 		//Methods
@@ -35,7 +37,8 @@
 							tipo_produto,
 							grupo_produto,
 							observacoes_produto,
-							info_pagamento
+							info_pagamento,
+							fk_produto
 						  )  
 				VALUES 
 					(
@@ -44,7 +47,8 @@
 						'$this->tipo_produto',
 						'$this->grupo_produto',
 						'$this->observacoes_produto',
-						'$this->info_pagamento'
+						'$this->info_pagamento',
+						'$this->fk_produto'
 					);
 			";
 			
@@ -64,14 +68,14 @@
 					 t1.tipo_produto,
 					 t1.grupo_produto,
 					 t1.observacoes_produto,
-					 t1.info_pagamento
+					 t1.info_pagamento,
+					 t1.fk_produto
 				FROM
 					produto_valores AS t1
 				WHERE
 					t1.id_produto_valores = '$id'
 
 			";
-			
 			
 			$DB = new DB();
 			$DB->open();
@@ -91,13 +95,11 @@
 					 t1.tipo_produto,
 					 t1.grupo_produto,
 					 t1.observacoes_produto,
-					 t1.info_pagamento
+					 t1.info_pagamento,
+					 t1.fk_produto
 				FROM
 					produto_valores AS t1
-				
-
 			";
-			
 			
 			$DB = new DB();
 			$DB->open();
@@ -105,9 +107,7 @@
 			$realData;
 			if($Data ==NULL){
 				$realData = $Data;
-			}
-			else{
-				
+			}else{	
 				foreach($Data as $itemData){
 					if(is_bool($itemData)) continue;
 					else{
@@ -119,9 +119,6 @@
 			return $realData; 
 		}
 		
-		
-		
-		
 		//Funcao que retorna um vetor com todos as instancias da classe no BD com paginacao
 		public function ReadAll_Paginacao($inicio, $registros){
 			$sql = "
@@ -131,13 +128,13 @@
 					 t1.tipo_produto,
 					 t1.grupo_produto,
 					 t1.observacoes_produto,
-					 t1.info_pagamento
+					 t1.info_pagamento,
+					 t1.fk_produto
 				FROM
 					produto_valores AS t1
 					
 				LIMIT $inicio, $registros;
 			";
-			
 			
 			$DB = new DB();
 			$DB->open();
@@ -156,7 +153,8 @@
 				  tipo_produto = '$this->tipo_produto',
 				  grupo_produto = '$this->grupo_produto',
 				  observacoes_produto = '$this->observacoes_produto',
-				  info_pagamento = '$this->info_pagamento'
+				  info_pagamento = '$this->info_pagamento',
+				  fk_produto = '$this->fk_produto'
 				  
 				WHERE id_produto_valores = '$this->id_produto_valores';
 			";
@@ -208,6 +206,7 @@
 			$this->grupo_produto;
 			$this->observacoes_produto;
 			$this->info_pagamento;
+			$this->fk_produto;
 		}
 		
 		//destructor
@@ -218,6 +217,7 @@
 			$this->grupo_produto;
 			$this->observacoes_produto;
 			$this->info_pagamento;
+			$this->fk_produto;
 		}	
 	};
 ?>

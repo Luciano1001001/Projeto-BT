@@ -7,14 +7,16 @@
 		//Nome das variaveis devem ser de acordo com as colunas da tabela respectiva no bd
 		private $id_produto_pacotes;
 		private $nome_pacote;
-		private $descricao_pacote;		
+		private $descricao_pacote;
+		private $fk_produto;
 
 		//setters
 		//Funcao que seta uma instancia da classe
-		public function SetValues($id_produto_pacotes, $nome_pacote, $descricao_pacote){ 
+		public function SetValues($id_produto_pacotes, $nome_pacote, $descricao_pacote, $fk_produto){ 
 			$this->id_produto_pacotes = $id_produto_pacotes;
 			$this->nome_pacote = $nome_pacote;
-			$this->descricao_pacote = $descricao_pacote;				
+			$this->descricao_pacote = $descricao_pacote;
+			$this->fk_produto = $fk_produto;
 		}
 		
 		//Methods
@@ -26,13 +28,15 @@
 						  (
 				 			id_produto_pacotes,
 							nome_pacote,
-							descricao_pacote
+							descricao_pacote,
+							fk_produto
 						  )  
 				VALUES 
 					(
 						'$this->id_produto_pacotes',
 						'$this->nome_pacote',
-						'$this->descricao_pacote'
+						'$this->descricao_pacote',
+						'$this->fk_produto'
 					);
 			";
 			
@@ -49,7 +53,8 @@
 				SELECT
 					 t5.id_produto_pacotes,					 
 					 t5.nome_pacote,
-					 t5.descricao_pacote
+					 t5.descricao_pacote,
+					 t5.fk_produto
 				FROM
 					produto_pacotes AS t5
 				WHERE
@@ -72,7 +77,8 @@
 				SELECT
 					 t5.id_produto_pacotes,					 
 					 t5.nome_pacote,
-					 t5.descricao_pacote
+					 t5.descricao_pacote,
+					 t5.fk_produto
 				FROM
 					produto_pacotes AS t5
 			";
@@ -103,7 +109,8 @@
 				SELECT
 					 t5.id_produto_pacotes,					 
 					 t5.nome_pacote,
-					 t5.descricao_pacote
+					 t5.descricao_pacote,
+					 t5.fk_produto
 				FROM
 					produto_pacotes AS t5
 					
@@ -124,7 +131,8 @@
 				UPDATE produto_pacotes SET
 				
 				  nome_pacote = '$this->nome_pacote',
-				  descricao_pacote = '$this->descricao_pacote'
+				  descricao_pacote = '$this->descricao_pacote',
+				  fk_produto = '$this->fk_produto'
 				  
 				WHERE id_produto_pacotes = '$this->id_produto_pacotes';
 			";
@@ -173,6 +181,7 @@
 			$this->id_produto_pacotes;
 			$this->nome_pacote;
 			$this->descricao_pacote;
+			$this->fk_produto;
 		}
 		
 		//destructor
@@ -180,6 +189,7 @@
 			$this->id_produto_pacotes;
 			$this->nome_pacote;
 			$this->descricao_pacote;
+			$this->fk_produto;
 		}	
 	};
 ?>

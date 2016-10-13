@@ -95,12 +95,9 @@
 <br>
 
 <section class="btn-group" role="group" aria-label="...">
-    <button type="button" class="btn btn-warning" id="Voltar"> <span class="glyphicon glyphicon-chevron-left" arial-hidden="true"></span> Voltar</button>
+    <button type="button" class="btn btn-warning" id="Voltar"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Voltar</button>
     
-    <!-- Botão salvar
-    <button type="button" class="btn btn-success" id="Salvar"> <span class="glyphicon glyphicon glyphicon-floppy-saved" arial-hidden="true"></span> Salvar </button>-->
-    
-    <button type="button" class="btn btn-success" id="Proximo"> <span class="glyphicon glyphicon-chevron-right" arial-hidden="true"></span> Próximo </button>
+    <button type="button" class="btn btn-success" id="Proximo"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Próximo </button>
     
 </section>
 
@@ -113,13 +110,6 @@
   			<input type="text" class="form-control" id="nome_produto" placeholder="Produto" aria-describedby="basic-addon1">
 		</div>
     </section>
-    
-    <!--<section class="col-md-4">
-    	<div class="input-group">
-  			<span class="input-group-addon" id="basic-addon1">Valor *</span>
-  			<input type="text" class="form-control" id="valor_produto" placeholder="R$" aria-describedby="basic-addon1">
-		</div>
-    </section>-->
     
     <section class="col-md-4">
     	<div class="input-group">
