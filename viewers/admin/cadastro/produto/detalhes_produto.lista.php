@@ -119,7 +119,7 @@
     <section class="col-md-8">
     	<div class="input-group">
   			<span class="input-group-addon verde-nx" id="basic-addon1">Transporte *</span>
-  			<textarea type="text" class="form-control" id="transporte_produto" placeholder="Informações sobre o transporte..." aria-describedby="basic-addon1" rows="3" readonly><?php echo $Item['transporte_produto']; ?></textarea>
+  			<textarea type="text" class="form-control no-resize" id="transporte_produto" placeholder="Informações sobre o transporte..." aria-describedby="basic-addon1" rows="3" readonly><?php echo $Item['transporte_produto']; ?></textarea>
 		</div>
     </section>
 </section>

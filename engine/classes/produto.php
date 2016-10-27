@@ -184,7 +184,7 @@
 			$DB->close();
 			return $result;
 		}
-		
+				
 		//Funcao que deleta uma instancia no BD
 		public function Delete(){
 			$sql = "

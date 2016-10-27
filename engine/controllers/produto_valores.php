@@ -6,7 +6,7 @@
 	$valor_produto= $_POST['valor_produto'];
 	$tipo_produto= $_POST['tipo_produto'];
 	$grupo_produto= $_POST['grupo_produto'];
-	$observacoes_produto= $_POST['observacoes_produto'];
+	$fk_observacoes= $_POST['fk_observacoes'];
 	$info_pagamento= $_POST['info_pagamento'];
 	$fk_produto= $_POST['fk_produto'];
 	
@@ -15,7 +15,7 @@
 	
 	//parte3
 	$Item = new Produto_valores();
-	$Item->SetValues($id_produto_valores, $valor_produto, $tipo_produto, $grupo_produto, $observacoes_produto, $info_pagamento, $fk_produto);
+	$Item->SetValues($id_produto_valores, $valor_produto, $tipo_produto, $grupo_produto, $fk_observacoes, $info_pagamento, $fk_produto);
 	
 	//parte4
 	switch($action){
@@ -41,7 +41,8 @@
 			}
 			echo $res;
 			
-		break;	
+		break;
+		
 		case 'delete':
 		
 			$res = $Item->Delete();

@@ -52,7 +52,7 @@ class DB
 			//connect as appropriate as above
 			$this->dbi->query($sql); //invalid query!
 		} catch(PDOException $ex) {
-			echo "An Error occured!"; //user friendly message
+			echo "An Error occured! $ex"; //user friendly message
 			
 		}
     }

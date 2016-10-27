@@ -9,18 +9,18 @@
 		private $valor_produto;
 		private $tipo_produto;
 		private $grupo_produto;
-		private $observacoes_produto;
+		private $fk_observacoes;
 		private $info_pagamento;
 		private $fk_produto;
 
 		//setters
 		//Funcao que seta uma instancia da classe
-		public function SetValues($id_produto_valores, $valor_produto, $tipo_produto, $grupo_produto, $observacoes_produto, $info_pagamento, $fk_produto){ 
+		public function SetValues($id_produto_valores, $valor_produto, $tipo_produto, $grupo_produto, $fk_observacoes, $info_pagamento, $fk_produto){ 
 			$this->id_produto_valores = $id_produto_valores;
 			$this->valor_produto = $valor_produto;
 			$this->tipo_produto = $tipo_produto;
 			$this->grupo_produto = $grupo_produto;
-			$this->observacoes_produto = $observacoes_produto;
+			$this->fk_observacoes = $fk_observacoes;
 			$this->info_pagamento = $info_pagamento;
 			$this->fk_produto = $fk_produto;
 		}
@@ -36,7 +36,7 @@
 							valor_produto,
 							tipo_produto,
 							grupo_produto,
-							observacoes_produto,
+							fk_observacoes,
 							info_pagamento,
 							fk_produto
 						  )  
@@ -46,7 +46,7 @@
 						'$this->valor_produto',
 						'$this->tipo_produto',
 						'$this->grupo_produto',
-						'$this->observacoes_produto',
+						'$this->fk_observacoes',
 						'$this->info_pagamento',
 						'$this->fk_produto'
 					);
@@ -67,7 +67,7 @@
 					 t1.valor_produto,
 					 t1.tipo_produto,
 					 t1.grupo_produto,
-					 t1.observacoes_produto,
+					 t1.fk_observacoes,
 					 t1.info_pagamento,
 					 t1.fk_produto
 				FROM
@@ -94,7 +94,7 @@
 					 t1.valor_produto,
 					 t1.tipo_produto,
 					 t1.grupo_produto,
-					 t1.observacoes_produto,
+					 t1.fk_observacoes,
 					 t1.info_pagamento,
 					 t1.fk_produto
 				FROM
@@ -127,7 +127,7 @@
 					 t1.valor_produto,
 					 t1.tipo_produto,
 					 t1.grupo_produto,
-					 t1.observacoes_produto,
+					 t1.fk_observacoes,
 					 t1.info_pagamento,
 					 t1.fk_produto
 				FROM
@@ -152,7 +152,7 @@
 				  valor_produto = '$this->valor_produto',
 				  tipo_produto = '$this->tipo_produto',
 				  grupo_produto = '$this->grupo_produto',
-				  observacoes_produto = '$this->observacoes_produto',
+				  fk_observacoes = '$this->fk_observacoes',
 				  info_pagamento = '$this->info_pagamento',
 				  fk_produto = '$this->fk_produto'
 				  
@@ -204,7 +204,7 @@
 			$this->valor_produto;
 			$this->tipo_produto;
 			$this->grupo_produto;
-			$this->observacoes_produto;
+			$this->fk_observacoes;
 			$this->info_pagamento;
 			$this->fk_produto;
 		}
@@ -215,7 +215,7 @@
 			$this->valor_produto;
 			$this->tipo_produto;
 			$this->grupo_produto;
-			$this->observacoes_produto;
+			$this->fk_observacoes;
 			$this->info_pagamento;
 			$this->fk_produto;
 		}	

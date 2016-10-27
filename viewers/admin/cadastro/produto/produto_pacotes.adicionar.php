@@ -13,11 +13,48 @@
 		$('#bread_produto').click(function(e){
 			e.preventDefault();
 			$('#loader').load('viewers/admin/cadastro/produto.lista.php');
-    	});
+    	});		
 		
 		$('#Voltar').click(function(e) {
     	    e.preventDefault();
-			$('#loader').load('viewers/admin/cadastro/produto.adicionar.php');
+			//Controle começa aqui
+			//1 instanciar e recuperar valores dos imputs			
+			var fk_produto = $('#fk_produto').val();
+			var controle = 1;
+			
+			//validar os imputs
+			if(fk_produto === "" || controle === ""){
+				return alert('Todods os campos com (*) devem ser preenchidos!!!');
+			}
+			else{
+					$.ajax({
+						url: 'engine/controllers/produto_controle.php',
+					   data: {
+						    id_controle : null,
+						   	fk_produto : fk_produto,
+							controle : controle,
+							
+							action: 'create'
+					   },
+					   
+					   error: function() {
+							alert('Erro na conexão com o servidor. Tente novamente em alguns segundos.');
+					   },
+					   success: function(data) {
+						   console.log(data);
+							if(data === 'true'){
+								alert(fk_produto);
+								alert(controle);
+								$('#loader').load('viewers/admin/cadastro/produto.adicionar.php');
+							}else{
+								alert('Erro ao conectar com banco de dados. Aguarde e tente novamente em alguns instantes.');
+							}
+					   },
+					   
+					   type: 'POST'
+					});
+				}
+			//Controle termina aqui
 		});
 		
 		$('#Proximo').click(function(e) {
@@ -99,8 +136,8 @@
 <?php
 	require_once "../../../../engine/config.php";
 ?>
-<link href="../../../../css/bootstrap.css" rel="stylesheet" type="text/css">
 
+<link href="../../../../css/bootstrap.css" rel="stylesheet" type="text/css">
 
 <ol class="breadcrumb">
 	<li><a href="#" id="bread_home">Home</a></li>
@@ -152,6 +189,7 @@
 	$ultimoProd = end($ItemProduto); //Pega o último item do array
 ?>
 
+<!-- ID do último produto adicionado para ser usado como chave estrangeira -->
 <input type="hidden" id="fk_produto" value="<?php echo $ultimoProd['id_produto']; ?>">
 
 <!-- Listar dados referentes ao produto que acaba de ser adicionado -->

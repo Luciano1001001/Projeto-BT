@@ -26,6 +26,42 @@
 			$('#loader').load('viewers/admin/cadastro/produto.lista.php');
 		});
 		
+		$('#Teste').click(function(e) {
+    	    e.preventDefault();
+			var observacoes_produto = $('#observacoes_produto').val();
+			if(confirm("Salvar?")){
+				$.ajax({
+				   url: 'engine/controllers/produto_valores.php',
+				   data: {
+							observacoes_produto : observacoes_produto,
+
+							action: 'update'
+				   },
+				   error: function() {
+						alert('Erro na conexão com o servidor. Tente novamente em alguns segundos.');
+				   },
+				   success: function(data) {
+					   console.log(data);
+						if(data === 'true'){
+							alert('Sim');
+							$('#loader').load('viewers/admin/cadastro/produto/produto_valores.adicionar.php');
+						}else{
+							alert('Erro ao conectar com banco de dados. Aguarde e tente novamente em alguns instantes.');
+						}
+				   },
+				   type: 'POST'
+				});	
+			}
+			
+			
+			
+			
+			
+			
+			alert("Obs salvas!")
+			$('#loader').load('viewers/admin/cadastro/produto/produto_valores.adicionar.php');
+		});
+		
 		$('.ExcluirItem').click(function(e) {
 			e.preventDefault();
 			var id = $('#id_produto_valores').val();
@@ -65,13 +101,13 @@
 			var valor_produto = $('#valor_produto').val();
 			var tipo_produto = $('#tipo_produto').val();
 			var grupo_produto = $('#grupo_produto').val();
-			var observacoes_produto = $('#observacoes_produto').val();
+			var fk_observacoes = 0;
 			var info_pagamento = $('#info_pagamento').val();
 			var fk_produto = $('#fk_produto').val();
 						
 			//validar os imputs
 			if(valor_produto === "" || tipo_produto === "" || grupo_produto === "" || info_pagamento === ""){
-				return alert('Todods os campos com (*) devem ser preenchidos!!!');
+				return alert('Todos os campos com (*) devem ser preenchidos!!!');
 			}
 			else{
 					$.ajax({
@@ -81,7 +117,7 @@
 							valor_produto : valor_produto,
 							tipo_produto : tipo_produto,
 							grupo_produto : grupo_produto,
-							observacoes_produto : observacoes_produto,
+							fk_observacoes : fk_observacoes,
 							info_pagamento : info_pagamento,
 							fk_produto : fk_produto,					
 							
@@ -92,6 +128,7 @@
 							alert('Erro na conexão com o servidor. Tente novamente em alguns segundos.');
 					   },
 					   success: function(data) {
+						   console.log(data);
 							if(data === 'true'){
 								alert('Item adicionado com sucesso!');
 								$('#loader').load('viewers/admin/cadastro/produto/produto_valores.adicionar.php');
@@ -127,6 +164,9 @@
 <section class="btn-group" role="group" aria-label="...">
     <button type="button" class="btn btn-warning" id="Voltar"> <span class="glyphicon glyphicon-chevron-left" arial-hidden="true"></span> Voltar</button>
     <button type="button" class="btn btn-success" id="Salvar"> <span class="glyphicon glyphicon glyphicon-floppy-saved" arial-hidden="true"></span> Salvar</button>
+    
+    
+    <button type="button" class="btn btn-success" id="Teste"> <span class="glyphicon glyphicon glyphicon-floppy-saved" arial-hidden="true"></span> Teste</button>
 </section>
 
 <br><br>
