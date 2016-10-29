@@ -39,6 +39,18 @@
 		
 		break;	
 		
+		case 'updateTeste':	
+			$res = $Item->UpdateTeste();
+			
+			if($res === NULL){
+				$res = 'true';	
+			}else{
+				$res = 'false';	
+			}
+			echo $res;
+		
+		break;
+		
 		case 'delete':	
 			$res = $Item->Delete();
 			if($res === NULL){

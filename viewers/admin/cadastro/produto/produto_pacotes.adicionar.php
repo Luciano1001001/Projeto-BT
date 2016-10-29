@@ -1,3 +1,19 @@
+<?php
+	require_once "../../../../engine/config.php";
+				
+	$Check = new Produto_controle;
+	$Check = end($Check->ReadAll()); // Lendo tabela e pegando o último add nela
+				
+	$flag = $Check['fk_produto'];
+	
+	echo $flag;
+	
+	$ItemProduto = new Produto();
+	$ItemProduto = $ItemProduto->ReadAll();
+	
+	$ultimoProd = end($ItemProduto);
+?>
+
 <script>
 	$(document).ready(function(e) {
 		$('#bread_home').click(function(e){
@@ -18,15 +34,13 @@
 		$('#Voltar').click(function(e) {
     	    e.preventDefault();
 			//Controle começa aqui
-			//1 instanciar e recuperar valores dos imputs			
 			var fk_produto = $('#fk_produto').val();
 			var controle = 1;
 			
 			//validar os imputs
 			if(fk_produto === "" || controle === ""){
 				return alert('Todods os campos com (*) devem ser preenchidos!!!');
-			}
-			else{
+			}else{
 					$.ajax({
 						url: 'engine/controllers/produto_controle.php',
 					   data: {
@@ -43,6 +57,7 @@
 					   success: function(data) {
 						   console.log(data);
 							if(data === 'true'){
+								//Verificando código do produto e controle
 								alert(fk_produto);
 								alert(controle);
 								$('#loader').load('viewers/admin/cadastro/produto.adicionar.php');
@@ -59,7 +74,84 @@
 		
 		$('#Proximo').click(function(e) {
     	    e.preventDefault();
-			$('#loader').load('viewers/admin/cadastro/produto/produto_valores.adicionar.php');
+			//Controle começa aqui
+			var fk_produto = $('#fk_produto').val();
+			var controle = 0;
+			var id_produto = "<?php echo $ultimoProd['id_produto']; ?>";
+			var flag_fk_produto = "<?php echo $flag; ?>";
+			
+			alert(id_produto);
+			alert(flag_fk_produto);
+
+
+			//validar os imputs
+			if(fk_produto === "" || controle === ""){
+				return alert('Todods os campos com (*) devem ser preenchidos!!!');
+			}else{
+				if(id_produto != flag_fk_produto){
+					alert('Create');
+					$.ajax({
+						url: 'engine/controllers/produto_controle.php',
+						data: {
+							id_controle : null,
+						   	fk_produto : fk_produto,
+							controle : controle,
+							
+							action: 'create'
+						},
+						
+						error: function() {
+						alert('Erro na conexão com o servidor. Tente novamente em alguns segundos.');
+				   },
+				   success: function(data) {
+					   console.log(data);
+						if(data === 'true'){
+							//Verificando código do produto e controle
+							alert(fk_produto);
+							alert(controle);
+							$('#loader').load('viewers/admin/cadastro/produto/produto_valores.adicionar.php');
+						}else{
+							alert('Erro ao conectar com banco de dados. Aguarde e tente novamente em alguns instantes.');
+						}
+				   },
+					   
+				   type: 'POST'
+				});
+						
+						
+					} else {
+						alert('update');
+						$.ajax({
+						url: 'engine/controllers/produto_controle.php',
+						data: {
+						   	fk_produto : fk_produto,
+							controle : controle,
+							
+							action: 'updateTeste'
+						},
+						
+						error: function() {
+						alert('Erro na conexão com o servidor. Tente novamente em alguns segundos.');
+				   },
+				   success: function(data) {
+					   console.log(data);
+						if(data === 'true'){
+							//Verificando código do produto e controle
+							alert(fk_produto);
+							alert(controle);
+							$('#loader').load('viewers/admin/cadastro/produto/produto_valores.adicionar.php');
+						}else{
+							alert('Erro ao conectar com banco de dados. Aguarde e tente novamente em alguns instantes.');
+						}
+				   },
+					   
+				   type: 'POST'
+				});
+					}
+
+			}
+				
+			//$('#loader').load('viewers/admin/cadastro/produto/produto_valores.adicionar.php');
 		});
 		
 		$('.ExcluirItem').click(function(e) {
@@ -81,7 +173,6 @@
 				   },
 				   success: function(data) {
 						if(data === 'true'){
-							//alert('Item deletado com sucesso!');
 							$('#loader').load('viewers/admin/cadastro/produto/produto_pacotes.adicionar.php');
 						}else{
 							alert('Erro ao conectar com banco de dados. Aguarde e tente novamente em alguns instantes.');
@@ -119,7 +210,6 @@
 					   },
 					   success: function(data) {
 							if(data === 'true'){
-								//alert('Item adicionado com sucesso!');
 								$('#loader').load('viewers/admin/cadastro/produto/produto_pacotes.adicionar.php');
 							}else{
 								alert('Erro ao conectar com banco de dados. Aguarde e tente novamente em alguns instantes.');
@@ -132,10 +222,6 @@
 		});		
 	});
 </script>
-
-<?php
-	require_once "../../../../engine/config.php";
-?>
 
 <link href="../../../../css/bootstrap.css" rel="stylesheet" type="text/css">
 
@@ -183,10 +269,7 @@
 
 <!-- Pegar ID do produto e passar para a FK de pacote -->
 <?php
-	$ItemProduto = new Produto();
-	$ItemProduto = $ItemProduto->ReadAll();
-	
-	$ultimoProd = end($ItemProduto); //Pega o último item do array
+	$ultimoProd = end($ItemProduto);
 ?>
 
 <!-- ID do último produto adicionado para ser usado como chave estrangeira -->

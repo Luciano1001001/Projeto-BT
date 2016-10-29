@@ -65,7 +65,7 @@
 		//Funcao que retorna um vetor com todos as instancias da classe no BD
 		public function ReadAll(){
 			$sql = "
-				SELEC
+				SELECT
 					 t1.id_controle,
 					 t1.fk_produto,					 
 					 t1.controle
@@ -121,6 +121,22 @@
 				  fk_produto = '$this->fk_produto'
 				  
 				WHERE id_controle = '$this->id_controle';
+			";
+		
+			$DB = new DB();
+			$DB->open();
+			$result =$DB->query($sql);
+			$DB->close();
+			return $result;
+		}
+		
+		public function UpdateTeste(){
+			$sql = "
+				UPDATE produto_controle SET
+				
+				  controle = '$this->controle'
+				  
+				WHERE fk_produto = '$this->fk_produto';
 			";
 		
 			$DB = new DB();

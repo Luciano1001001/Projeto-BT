@@ -97,16 +97,22 @@
 
 <br><br>
 
-<?php	
+<?php
+	$Controle = new Produto_controle();
+	$Controle = $Controle->ReadAll();
+	
+	$flag = end($Controle);
+
 	$Item = new Produto();
 	$Item = $Item->ReadAll();
 	
 	$ultimoVal = end($Item);
-	$flag = 0;
 	
-	foreach($Item as $verif){
-		if($ultimoVal['id_produto'] == $verif['id_produto']){
-			$flag = 0;
+	$ler = 0; //ler dados já existentes no banco sobre o dado produto
+	
+	if($flag['fk_produto'] == $ultimoVal['id_produto']){
+		if($flag['controle'] != 0){
+			$ler = 1;
 		}
 	}
 ?>
@@ -115,7 +121,7 @@
 	<section class="col-md-4">
     	<div class="input-group">
   			<span class="input-group-addon" id="basic-addon1">Nome Produto *</span>
-  			<input type="text" class="form-control" id="nome_produto" aria-describedby="basic-addon1" placeholder="Produto" <?php if($flag == 1){ ?> value="<?php echo $ultimoVal['nome_produto']; }?>">
+  			<input type="text" class="form-control" id="nome_produto" aria-describedby="basic-addon1" placeholder="Produto" <?php if($ler == 1){ ?> value="<?php echo $ultimoVal['nome_produto']; }?>">
 		</div>
     </section>
 </section>
@@ -126,7 +132,7 @@
     <section class="col-md-4">
     	<div class="input-group">
         	<span class="input-group-addon" id="basic-addon1">Data da Viagem *</span>
-            <input type="text" class="form-control" id="periodo_produto" placeholder="Período da Viagem" aria-describedby="basic-addon1" <?php if($flag == 1){ ?> value="<?php echo $ultimoVal['periodo_produto']; }?>"></div>
+            <input type="text" class="form-control" id="periodo_produto" placeholder="Período da Viagem" aria-describedby="basic-addon1" <?php if($ler == 1){ ?> value="<?php echo $ultimoVal['periodo_produto']; }?>"></div>
         </div>
     </section> 
 </section>
@@ -137,7 +143,7 @@
 	<section class="col-md-8">
     	<div class="input-group">
   			<span class="input-group-addon" id="basic-addon1">Transporte *</span>
-  			<textarea type="text" class="form-control" id="transporte_produto" placeholder="Informações sobre o transporte..." aria-describedby="basic-addon1" rows="3"><?php if($flag == 1){ echo $ultimoVal['transporte_produto']; }?></textarea>
+  			<textarea type="text" class="form-control" id="transporte_produto" placeholder="Informações sobre o transporte..." aria-describedby="basic-addon1" rows="3"><?php if($ler == 1){ echo $ultimoVal['transporte_produto']; }?></textarea>
 		</div>
     </section>
 </section>
@@ -148,7 +154,7 @@
 	<section class="col-md-8">
     	<div class="input-group">
   			<span class="input-group-addon" id="basic-addon1">Hospedagem *</span>
-  			<textarea type="text" class="form-control" id="hospedagem_produto" placeholder="Informações sobre a hospedagem..." aria-describedby="basic-addon1" rows="3"><?php if($flag == 1){ echo $ultimoVal['hospedagem_produto']; }?></textarea>
+  			<textarea type="text" class="form-control" id="hospedagem_produto" placeholder="Informações sobre a hospedagem..." aria-describedby="basic-addon1" rows="3"><?php if($ler == 1){ echo $ultimoVal['hospedagem_produto']; }?></textarea>
 		</div>
     </section>
 </section>
@@ -159,7 +165,7 @@
     <section class="col-md-8">
     	<div class="input-group">
   			<span class="input-group-addon" id="basic-addon1">Alimentação *</span>
-  			<textarea type="text" class="form-control" id="alimentacao_produto" placeholder="Informações sobre a alimentação..." aria-describedby="basic-addon1" rows="3"><?php if($flag == 1){ echo $ultimoVal['alimentacao_produto']; }?></textarea>
+  			<textarea type="text" class="form-control" id="alimentacao_produto" placeholder="Informações sobre a alimentação..." aria-describedby="basic-addon1" rows="3"><?php if($ler == 1){ echo $ultimoVal['alimentacao_produto']; }?></textarea>
 		</div>
     </section>
 </section>
@@ -170,7 +176,7 @@
     <section class="col-md-8">
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Estrutura Exclusiva<br/>da BRASILTUR *</span>
-            <textarea type="text" class="form-control" id="estrutura_produto" placeholder="Informações do Produto..." aria-describedby="basic-addon1" rows="5"><?php if($flag == 1){ echo $ultimoVal['estrutura_produto']; }?></textarea>
+            <textarea type="text" class="form-control" id="estrutura_produto" placeholder="Informações do Produto..." aria-describedby="basic-addon1" rows="5"><?php if($ler == 1){ echo $ultimoVal['estrutura_produto']; }?></textarea>
         </div>
     </section>
 </section>
@@ -181,7 +187,7 @@
     <section class="col-md-8">
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Informações diversas *</span>
-            <textarea type="text" class="form-control" id="info_produto" placeholder="Informações complementares..." aria-describedby="basic-addon1" rows="3"><?php if($flag == 1){ echo $ultimoVal['info_produto']; }?></textarea>
+            <textarea type="text" class="form-control" id="info_produto" placeholder="Informações complementares..." aria-describedby="basic-addon1" rows="3"><?php if($ler == 1){ echo $ultimoVal['info_produto']; }?></textarea>
         </div>
     </section>
 </section>
