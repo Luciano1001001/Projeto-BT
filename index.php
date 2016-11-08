@@ -12,6 +12,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/jpg" href="img/1604803_225802030948116_568099413_n.jpg"/>
         <title>Brasil Tur</title>
 
         <!-- Bootstrap -->
@@ -20,7 +21,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     </head>
     <body>
-    	<nav class="navbar navbar-default navbar-fixed-top ">
+    	<nav class="navbar navbar-inverse navbar-fixed-top ">
         	<div class="container-fluid"> 
             	<!-- Brand and toggle get grouped for better mobile display -->
 	        	<div class="navbar-header">
@@ -31,7 +32,7 @@
             			<span class="icon-bar"></span>
           			</button>
 					<!-- <a class="navbar-brand" href="#" id="">Sistema de Treinamento NS</a> -->
-                     <a class="navbar-brand" href="?" id="">BrasilTur <i class="fa fa-map-marker"></i> </a>
+                     <a class="navbar-brand" href="?" id=""><img src="img/brtur.png" class="img-responsive img-logo" width="150"> </a>
                	</div>
             
             	<!-- Collect the nav links, forms, and other content for toggling -->
@@ -43,8 +44,8 @@
                 
                    if ($user === "admin") {
                  ?>
-                    <li><a href="#" id="">Bem Vindo <?php echo $_SESSION['name_user'];?> </a>                
-                    <li><a href="?" id="">HOME </a></li>
+                    <li><a class="" id="">Bem Vindo <?php echo $_SESSION['name_user'];?> </a></li>               
+                    <li><a href="?" id=""><i class="fa fa-home" aria-hidden="true"></i> HOME </a></li>
                     
                     <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> CADASTRO <span class="caret"></span></a>
@@ -53,13 +54,21 @@
                         <li><a href="#" id="Link_Cadastro_produto">Produto</a></li>
                         <li><a href="#" id="Link_Cadastro_usuario">Usuário</a></li>
                       </ul>
-                </li>
+                	</li>
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> GERENCIAMENTO <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#" id="Link_Gerenciamento_vendas">Vendas</a></li>
+                        <li><a href="#" id="Link_Gerenciamento_maladireta">Mala Direta</a></li>
+                        <li><a href="#" id="Link_Gerenciamento_boletos">Boletos</a></li>
+                      </ul>
+                	</li>
                 	
                 <?php
                  } else {
                      ?>
                      
-                     <li><a class="" href="#" id="">Bem Vindo <?php echo $_SESSION['name_user'];?> </a></li>
+                     <li><a class="" id="">Bem Vindo <?php echo $_SESSION['name_user'];?> </a></li>
 					 <li><a href="?" id="">HOME </a></li>
 					 
 					 <?php
@@ -74,7 +83,7 @@
         
         <main class="container-fluid" id="loader">
         	<h1 class="text-center"> Bem-Vindo ao Sistema </h1>
-            <br> <br> <br>  <br> <br> <br>
+            <br> <br>
         <?php
                     $user = $_SESSION['nivel_user'];
                 
@@ -82,28 +91,56 @@
                  ?>
                  
             <section class="container-fluid text-center">
+              <h2>Cadastro</h2>
+              <br>
               <div class="row">
-                <div class="col-md-3">
-					<a href="#" id="cliente-home"><i class="color-link fa fa-users fa-5x"></i>
-                    <h4 class="text-center color-link">Clientes</h4></a>
-                    <br><br>
+                <a href="#" id="cliente-home">
+                <div class="col-md-4 fundo-cor">
+					<i class="fa fa-users fa-5x"></i>
+                    <h4 class="text-center">Clientes</h4>
                 </div>
-                <div class="col-md-3">
-                  	<a href="#" id="produto-home"><i class="color-link fa fa-archive fa-5x"></i>
-                    <h4 class="text-center color-link">Produtos</h4></a>
-                    <br><br>
+				</a>
+                <a href="#" id="produto-home">	
+                <div class="col-md-4 fundo-cor">
+                  	<i class="fa fa-archive fa-5x"></i>
+                    <h4 class="text-center">Produtos</h4>
                 </div>
-                <div class="col-md-3">
-                   	<a href="#" id="usuario-home"><i class="color-link fa fa-user fa-5x"></i>
-                    <h4 class="color-link"> Usuários </h4></a>
-                    <br><br>
+                </a>
+                <a href="#" id="usuario-home">
+                <div class="col-md-4 fundo-cor">
+                   	<i class="fa fa-user fa-5x"></i>
+                    <h4 class="text-center"> Usuários </h4>
                 </div>
-                <div class="col-md-3">
-  					<a href="#" id="out-home"><i class="color-link fa fa-sign-out fa-5x"></i>
-                    <h4 class="text-center color-link"> Sair Do Sistema </h4></a>
-                </div>
+              </a>
               </div>
             </section>
+            
+           <section class="container-fluid text-center">
+              <h2>Gerenciamento</h2>
+              <br>
+              <div class="row">
+              
+              	<a href="#" id="vendas-home">
+                <div class="col-md-4 fundo-cor">
+					<i class="fa fa-money fa-5x"></i>
+                    <h4 class="text-center">Vendas</h4>
+                </div>
+                </a>
+                <a href="#" id="maladireta-home">
+                <div class="col-md-4 fundo-cor">
+                  	<i class="color-link fa fa-envelope fa-5x"></i>
+                    <h4 class="text-center color-link">Mala Direta</h4>
+                </div>
+                </a>
+                <a href="#" id="boletos-home">
+                <div class="col-md-4 fundo-cor">
+                   	<i class="color-link fa fa-file fa-5x"></i>
+                    <h4 class="color-link"> Boletos </h4>
+                </div>
+                </a>
+              </div>
+            </section>
+            
 		<?php
          } else {
                

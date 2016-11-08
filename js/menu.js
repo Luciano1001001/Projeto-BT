@@ -22,6 +22,20 @@ $(document).ready(function(e) {
 });
 
 $(document).ready(function(e) {
+	$('#Link_Gerenciamento_vendas').click(function(e) {
+        e.preventDefault();
+		$('#loader').load('viewers/admin/gerenciamento/vendas.lista.php');
+    });
+});
+
+$(document).ready(function(e) {
+	$('#Link_Gerenciamento_maladireta').click(function(e) {
+        e.preventDefault();
+		$('#loader').load('viewers/admin/gerenciamento/mala.direta.php');
+    });
+});
+
+$(document).ready(function(e) {
 	$('#cliente-home').click(function(e) {
         e.preventDefault();
 		$('#loader').load('viewers/admin/cadastro/cliente.lista.php');
@@ -39,6 +53,20 @@ $(document).ready(function(e) {
 	$('#usuario-home').click(function(e) {
         e.preventDefault();
 		$('#loader').load('viewers/admin/cadastro/usuario.lista.php');
+    });
+});
+
+$(document).ready(function(e) {
+	$('#vendas-home').click(function(e) {
+        e.preventDefault();
+		$('#loader').load('viewers/admin/gerenciamento/vendas.lista.php');
+    });
+});
+
+$(document).ready(function(e) {
+	$('#maladireta-home').click(function(e) {
+        e.preventDefault();
+		$('#loader').load('viewers/admin/gerenciamento/mala.direta.php');
     });
 });
 

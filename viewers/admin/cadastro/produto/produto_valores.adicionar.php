@@ -43,7 +43,6 @@
 				   success: function(data) {
 					   console.log(data);
 						if(data === 'true'){
-							alert('Sim');
 							$('#loader').load('viewers/admin/cadastro/produto/produto_valores.adicionar.php');
 						}else{
 							alert('Erro ao conectar com banco de dados. Aguarde e tente novamente em alguns instantes.');
@@ -52,13 +51,6 @@
 				   type: 'POST'
 				});	
 			}
-			
-			
-			
-			
-			
-			
-			alert("Obs salvas!")
 			$('#loader').load('viewers/admin/cadastro/produto/produto_valores.adicionar.php');
 		});
 		

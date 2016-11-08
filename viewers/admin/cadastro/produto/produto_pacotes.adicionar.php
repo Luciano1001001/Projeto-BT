@@ -2,11 +2,14 @@
 	require_once "../../../../engine/config.php";
 				
 	$Check = new Produto_controle;
-	$Check = end($Check->ReadAll()); // Lendo tabela e pegando o último add nela
+	$Check = end($Check->ReadAll()); // Lendo tabela e pegando o último item add nela
 				
 	$flag = $Check['fk_produto'];
-	
-	echo $flag;
+
+	$Pacote = new Produto_pacotes;
+	$Pacote = end($Pacote->ReadAll());
+
+	$Pacote = $Pacote['fk_produto'];
 	
 	$ItemProduto = new Produto();
 	$ItemProduto = $ItemProduto->ReadAll();
@@ -34,13 +37,12 @@
 		$('#Voltar').click(function(e) {
     	    e.preventDefault();
 			//Controle começa aqui
-			var fk_produto = $('#fk_produto').val();
+			var fk_produto = $('#fk_produto').val(); // id do produto que acaba de ser adicionado
 			var controle = 1;
+			var fk_produto_pacote = "<?php echo $Check['fk_produto']; ?>"; // fk do último prod add na tabela controle
 			
-			//validar os imputs
-			if(fk_produto === "" || controle === ""){
-				return alert('Todods os campos com (*) devem ser preenchidos!!!');
-			}else{
+			
+			if(fk_produto != fk_produto_pacote){
 					$.ajax({
 						url: 'engine/controllers/produto_controle.php',
 					   data: {
@@ -57,9 +59,6 @@
 					   success: function(data) {
 						   console.log(data);
 							if(data === 'true'){
-								//Verificando código do produto e controle
-								alert(fk_produto);
-								alert(controle);
 								$('#loader').load('viewers/admin/cadastro/produto.adicionar.php');
 							}else{
 								alert('Erro ao conectar com banco de dados. Aguarde e tente novamente em alguns instantes.');
@@ -68,6 +67,30 @@
 					   
 					   type: 'POST'
 					});
+				} else {
+				$.ajax({
+						url: 'engine/controllers/produto_controle.php',
+						data: {
+						   	fk_produto : fk_produto,
+							controle : controle,
+							
+							action: 'updateTeste'
+						},
+						
+						error: function() {
+						alert('Erro na conexão com o servidor. Tente novamente em alguns segundos.');
+				   },
+				   success: function(data) {
+					   console.log(data);
+						if(data === 'true'){
+							$('#loader').load('viewers/admin/cadastro/produto.adicionar.php');
+						}else{
+							alert('Erro ao conectar com banco de dados. Aguarde e tente novamente em alguns instantes.');
+						}
+				   },
+					   
+				   type: 'POST'
+				});
 				}
 			//Controle termina aqui
 		});
@@ -79,17 +102,13 @@
 			var controle = 0;
 			var id_produto = "<?php echo $ultimoProd['id_produto']; ?>";
 			var flag_fk_produto = "<?php echo $flag; ?>";
-			
-			alert(id_produto);
-			alert(flag_fk_produto);
+			var fk_produto_pacote = "<?php echo $Pacote; ?>";
 
-
-			//validar os imputs
-			if(fk_produto === "" || controle === ""){
-				return alert('Todods os campos com (*) devem ser preenchidos!!!');
+			//validar os inputs
+			if(id_produto != fk_produto_pacote){
+				return alert('Você deve adicionar pelo menos um pacote!');
 			}else{
 				if(id_produto != flag_fk_produto){
-					alert('Create');
 					$.ajax({
 						url: 'engine/controllers/produto_controle.php',
 						data: {
@@ -107,8 +126,6 @@
 					   console.log(data);
 						if(data === 'true'){
 							//Verificando código do produto e controle
-							alert(fk_produto);
-							alert(controle);
 							$('#loader').load('viewers/admin/cadastro/produto/produto_valores.adicionar.php');
 						}else{
 							alert('Erro ao conectar com banco de dados. Aguarde e tente novamente em alguns instantes.');
@@ -120,7 +137,6 @@
 						
 						
 					} else {
-						alert('update');
 						$.ajax({
 						url: 'engine/controllers/produto_controle.php',
 						data: {
@@ -137,8 +153,6 @@
 					   console.log(data);
 						if(data === 'true'){
 							//Verificando código do produto e controle
-							alert(fk_produto);
-							alert(controle);
 							$('#loader').load('viewers/admin/cadastro/produto/produto_valores.adicionar.php');
 						}else{
 							alert('Erro ao conectar com banco de dados. Aguarde e tente novamente em alguns instantes.');
@@ -187,6 +201,7 @@
     	    e.preventDefault();
 			//1 instanciar e recuperar valores dos imputs			
 			var nome_pacote = $('#nome_pacote').val();
+			var valor_pacote = $('#valor_pacote').val();
 			var descricao_pacote = $('#descricao_pacote').val();
 			var fk_produto = $('#fk_produto').val();
 			
@@ -199,6 +214,7 @@
 					   data: {
 						   	id_produto_pacotes : null,
 							nome_pacote : nome_pacote,
+							valor_pacote : valor_pacote,
 							descricao_pacote : descricao_pacote,
 							fk_produto : fk_produto,
 							
@@ -243,21 +259,28 @@
 
 <br><br>
 
-<section class="row formAdicionadrDados">
-	<section class="col-md-4">
-    	<div class="input-group">
-  			<span class="input-group-addon" id="basic-addon1">Nome do Pacote *</span>
-  			<input type="text" class="form-control" id="nome_pacote" placeholder="Exemplo: City Tour..." aria-describedby="basic-addon1">
-		</div>
-    </section>
-       
-  <section class="col-md-8">
-    	<div class="input-group">
-  			<span class="input-group-addon" id="basic-addon1">Descrição *</span>
-		  <textarea type="text" class="form-control" id="descricao_pacote" placeholder="Informações sobre o pacote..." aria-describedby="basic-addon1" rows="3"></textarea>
+<div class="row">
+  <div class="col-md-4">
+  	<div class="input-group">
+	  	<span class="input-group-addon" id="basic-addon1">Nome do Pacote *</span>
+		<input type="text" class="form-control" id="nome_pacote" placeholder="Exemplo: City Tour..." aria-describedby="basic-addon1">
 	</div>
-    </section> 
-</section>
+
+	<br/>
+
+	<div class="input-group">
+	  	<span class="input-group-addon" id="basic-addon1">Valor *</span>
+	  	<input type="text" class="form-control" id="valor_pacote" placeholder="Valor do pacote" aria-describedby="basic-addon1">
+	</div>
+  </div>
+
+  <div class="col-md-8">
+  	<div class="input-group">
+	  	<span class="input-group-addon" id="basic-addon1">Descrição *</span>
+		<textarea type="text" class="form-control" id="descricao_pacote" placeholder="Informações sobre o pacote..." aria-describedby="basic-addon1" rows="4"></textarea>
+	</div>
+  </div>
+</div>
 
 <br>
 
@@ -294,7 +317,7 @@
     		<tr>
         		<th>Nome do Pacote</th>
             	<th>Descrição</th>
-                <th>FK</th>
+            	<th>Valor</th>
             	<th class="text-center">Excluir</th>
         	</tr>
     	</thead>
@@ -306,8 +329,8 @@
 					?>
                     <tr>
 	                	<td><?php echo $novo['nome_pacote']; ?></td>
+	                	<td><?php echo $novo['valor_pacote']; ?></td>
 	                	<td><?php echo $novo['descricao_pacote']; ?></td>
-    	            	<td><?php echo $novo['fk_produto']; ?></td>
                         
        	   	  			<td class="text-center ExcluirItem" id="<?php echo $novo['id_produto_pacotes']; ?>"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
                         

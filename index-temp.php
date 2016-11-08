@@ -1,13 +1,12 @@
 <?php session_start();
 	if(empty($_SESSION)){
 		?>
-		<script>
-			document.location.href = 'login/';
-		</script>
+      <script>
+				document.location.href = 'login/';
+			</script>
     <?php
 	}
 ?>
-
 <!doctype html>
 <html>
     <head>
@@ -18,9 +17,10 @@
         <!-- Bootstrap -->
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/brtur.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     </head>
     <body>
-    	<nav class="navbar navbar-default navbar-fixed-top">
+    	<nav class="navbar navbar-default navbar-fixed-top ">
         	<div class="container-fluid"> 
             	<!-- Brand and toggle get grouped for better mobile display -->
 	        	<div class="navbar-header">
@@ -30,7 +30,8 @@
             			<span class="icon-bar"></span>
             			<span class="icon-bar"></span>
           			</button>
-                     <a class="navbar-brand" href="?" id="">BrasilTur</a>
+					<!-- <a class="navbar-brand" href="#" id="">Sistema de Treinamento NS</a> -->
+                     <a class="navbar-brand" href="?" id="">BrasilTur <i class="fa fa-map-marker"></i> </a>
                	</div>
             
             	<!-- Collect the nav links, forms, and other content for toggling -->
@@ -44,28 +45,21 @@
                  ?>
                     <li><a href="#" id="">Bem Vindo <?php echo $_SESSION['name_user'];?> </a>                
                     <li><a href="?" id="">HOME </a></li>
-	              	<li class="dropdown">
-                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> CADASTRO <span class="caret"></span></a>
-                      	<ul class="dropdown-menu">
-                        	<li><a href="#" id="Link_Cadastro_cliente">Cliente</a></li>
-                        	<li><a href="#" id="Link_Cadastro_produto">Produto</a></li>
-                        	<li><a href="#" id="Link_Cadastro_usuario">Usuário</a></li>
-                      	</ul>
-    	            </li>
-                
+                    
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> GERENCIAMENTO <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" id="Link_Gerencimento_vendas">Vendas</a></li>
-                            <li><a href="#" id="Link_Gerencimento_mala">Mala Direta</a></li>
-                            <li><a href="#" id="Link_Gerencimento_boletos">Boletos</a></li>
-                        </ul>
-                    </li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> CADASTRO <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#" id="Link_Cadastro_cliente">Cliente</a></li>
+                        <li><a href="#" id="Link_Cadastro_produto">Produto</a></li>
+                        <li><a href="#" id="Link_Cadastro_usuario">Usuário</a></li>
+                      </ul>
+                </li>
+                	
                 <?php
                  } else {
                      ?>
                      
-                     <li><a href="#" id="">Bem Vindo <?php echo $_SESSION['name_user'];?> </a></li>
+                     <li><a class="" href="#" id="">Bem Vindo <?php echo $_SESSION['name_user'];?> </a></li>
 					 <li><a href="?" id="">HOME </a></li>
 					 
 					 <?php
@@ -80,52 +74,52 @@
         
         <main class="container-fluid" id="loader">
         	<h1 class="text-center"> Bem-Vindo ao Sistema </h1>
-            <br><br><br><br><br><br>
+            <br> <br> <br>  <br> <br> <br>
         <?php
                     $user = $_SESSION['nivel_user'];
                 
                     if ($user === "admin") {
                  ?>
-  		<section class="row formAdicionadrDados">
-			<section class="col-md-3">
-    			<div class="input-group">
-					<a href="#" id="cliente-home"><img src="img/clientes.png" class="img-responsive">
+                 
+            <section class="container-fluid text-center">
+              <div class="row">
+                <div class="col-md-3">
+					<a href="#" id="cliente-home"><i class="color-link fa fa-users fa-5x"></i>
                     <h4 class="text-center color-link">Clientes</h4></a>
+                    <br><br>
                 </div>
-    		</section>
-    		<section class="col-md-3">
-    			<div class="input-group">
-  					<a href="#" id="produto-home"><img src="img/produto.png" class="img-responsive">
+                <div class="col-md-3">
+                  	<a href="#" id="produto-home"><i class="color-link fa fa-archive fa-5x"></i>
                     <h4 class="text-center color-link">Produtos</h4></a>
-				</div>
-    		</section>
-            <section class="col-md-3">
-    			<div class="input-group">
-  					<a href="#" id="usuario-home"><img src="img/usuario.png" class="img-responsive">
-                    <h4 class="text-center color-link"> Usuários </h4></a>
-				</div>
-    		</section>
-            <section class="col-md-3">
-    			<div class="input-group">
-  					<a href="#" id="out-home"><img src="img/exit-door-sign.png" class="img-rounded">
+                    <br><br>
+                </div>
+                <div class="col-md-3">
+                   	<a href="#" id="usuario-home"><i class="color-link fa fa-user fa-5x"></i>
+                    <h4 class="color-link"> Usuários </h4></a>
+                    <br><br>
+                </div>
+                <div class="col-md-3">
+  					<a href="#" id="out-home"><i class="color-link fa fa-sign-out fa-5x"></i>
                     <h4 class="text-center color-link"> Sair Do Sistema </h4></a>
-				</div>
-    		</section>
-		</section>
+                </div>
+              </div>
+            </section>
 		<?php
-			} else {
-				//Questão a ser decidida...
-			}
-		?>
+         } else {
+               
+          }
+         ?>	
+        
         </main>
         
-		<footer class="brfooter">
-        	<p class="text-center"> Copyright © Next Step 2016. Todos os direitos reservados. </p>
+        <footer class="brfooter">
+          <p class="text-center"> Copyright © Next Step 2016. Todos os direitos reservados. </p>
         </footer>
         
 		<script src="js/jquery.js"></script> 
         <script src="js/bootstrap.js"></script>
         <script src="js/menu.js"></script>
         <script src="js/jquerymask.min.js"></script>
+        
     </body>
 </html>

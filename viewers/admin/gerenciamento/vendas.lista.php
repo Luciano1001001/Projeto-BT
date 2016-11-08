@@ -5,43 +5,54 @@
 			e.preventDefault();
 			location.reload();
     	});
-		
+
 		$('#bread_cadastro').click(function(e){
 			e.preventDefault();
 			$('#loader').load('viewers/admin/cadastro/produto.lista.php');
     	});
-		
+
 		$('#bread_produto').click(function(e){
 			e.preventDefault();
 			$('#loader').load('viewers/admin/cadastro/produto.lista.php');
     	});
-		
+
 		$('#Atualizar').click(function(e) {
     	    e.preventDefault();
 			$('#loader').load('viewers/admin/cadastro/produto.lista.php');
 		});
-	
+
 		$('#Adicionar').click(function(e) {
     	    e.preventDefault();
 			$('#loader').load('viewers/admin/cadastro/produto.adicionar.php');
 		});
-		
+
 		$('.DetalhesItem').click(function(e) {
 			e.preventDefault();
 			var id = $(this).attr('id');
+			//alert(id);
 			$('#loader').load('viewers/admin/cadastro/produto/detalhes_produto.lista.php', {id:id});
 		});
-		
+
+		// mudar aqui a venda
+		$('.VenderItem').click(function(e) {
+			e.preventDefault();
+			var id = $(this).attr('id');
+			//alert(id);
+			//$('#loader').load('', {id:id});
+		});
+
 		$('.EditarItem').click(function(e) {
 			e.preventDefault();
 			var id = $(this).attr('id');
+			//alert(id);
 			$('#loader').load('viewers/admin/cadastro/produto.editar.php', {id:id});
 		});
-		
+
 		$('.ExcluirItem').click(function(e) {
 			e.preventDefault();
 
 			var id = $(this).attr('id');
+			//alert(id);
 			if(confirm("Tem certeza que deseja excluir este dado?")){
 				$.ajax({
 				   url: 'engine/controllers/produto.php',
@@ -65,18 +76,20 @@
 							alert('Item deletado com sucesso!');
 							$('#loader').load('viewers/admin/cadastro/produto.lista.php');
 						}
-						
+
 						else{
-							alert('Erro ao conectar com banco de dados. Aguarde e tente novamente em alguns instantes.');	
+							alert('Erro ao conectar com banco de dados. Aguarde e tente novamente em alguns instantes.');
 						}
 				   },
-				   
+
 				   type: 'POST'
-				});	
+				});
 			}
-			
+
 		});
-		
+
+		//var id_produto = $('input[name=optionsRadios]').filter(':checked').val();
+
 	});
 </script>
 
@@ -88,8 +101,8 @@
 
 <ol class="breadcrumb">
 	<li><a href="#" id="bread_home">Home</a></li>
-    <li><a href="#" id="bread_cadastro">Cadastro</a></li>
-    <li><a href="#" id="bread_produto">Produto</a></li>
+    <li><a href="#" id="bread_cadastro">Gerenciamento</a></li>
+    <li><a href="#" id="bread_produto">Vendas</a></li>
     <li class="active">Lista de Dados</li>
 </ol>
 
@@ -97,17 +110,10 @@
 
 <br>
 
-<section class="btn-group" role="group" aria-label="...">
-    <button type="button" class="btn btn-primary" id="Atualizar"> <span class="glyphicon glyphicon-refresh" arial-hidden="true"></span> Atualizar</button>
-    <button type="button" class="btn btn-success" id="Adicionar"> <span class="glyphicon glyphicon-plus" arial-hidden="true"></span> Adicionar Dados </button>
-</section>
-
-<br><br>
-
 <?php
 	$Item = new Produto();
 	$Item = $Item->ReadAll();
-	
+
 	if(empty($Item)){
 		?>
         	<h4 class="well"> Nenhum dado encontrado. </h4>
@@ -115,16 +121,16 @@
 	}
 	else {
 		?>
-        
+
    	<table class="table table-striped table-hover">
 		<thead>
     		<tr>
+						<!--th>Vender</th-->
         		<th>Nome</th>
             	<th>Data da Viagem</th>
             	<th>Informações</th>
-                <th class="text-center">Mais Detalhes</th>       	
-              	<th class="text-center">Editar</th>
-            	<th class="text-center">Excluir</th>
+              <th class="text-center">Mais Detalhes</th>
+							<th>Vender</th>
         	</tr>
     	</thead>
    		<tbody>
@@ -132,20 +138,73 @@
 				foreach($Item as $ItemRow){
 			?>
        		<tr>
+						<!--td class="align-center" id="<?php echo $itemRow['id_produto']; ?>">
+								<div class="radio">
+								  <label>
+								    <input type="radio" name="optionsRadios" id="<?php echo $itemRow['id_produto']; ?>" value="<?php echo $itemRow['id_produto']; ?>">
+								  </label>
+								</div>
+						</td-->
         		<td><?php echo $ItemRow['nome_produto']; ?></td>
-                <td><?php echo $ItemRow['periodo_produto']; ?></td>
-            	<td><?php echo $ItemRow['info_produto']; ?></td>
-                
-                <td class="text-center DetalhesItem" id="<?php echo $ItemRow['id_produto']; ?>"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-               	<td class="text-center EditarItem" id="<?php echo $ItemRow['id_produto']; ?>"> <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></td>
-       	   	  	<td class="text-center ExcluirItem" id="<?php echo $ItemRow['id_produto']; ?>"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td> 
+            <td><?php echo $ItemRow['periodo_produto']; ?></td>
+            <td><?php echo $ItemRow['info_produto']; ?></td>
+            <td class="text-center DetalhesItem" id="<?php echo $ItemRow['id_produto']; ?>"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+						<td class="text-center VenderItem" id="<?php echo $ItemRow['id_produto']; ?>"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></td>
         	</tr>
 		  	<?php
 				}
 			?>
    		</tbody>
  	</table>
-        
+
+        <?php
+	}
+?>
+<br><br>
+
+<h1> Lista de Produtos Vendidos </h1>
+
+<br>
+
+<?php
+	$ItemVenda = new Venda_produto();
+	$ItemVenda = $ItemVenda->ReadAll();
+
+	if(empty($ItemVenda)){
+		?>
+        	<h4 class="well"> Nenhum dado encontrado. </h4>
+        <?php
+	}
+	else {
+		?>
+
+   	<table class="table table-striped table-hover">
+		<thead>
+    		<tr>
+						<th>Data da Venda</th>
+        		<th>Nome</th>
+            <th>Data da Viagem</th>
+            <th>Informações</th>
+        	</tr>
+    	</thead>
+   		<tbody>
+        	<?php
+				foreach($ItemVenda as $ItemRow){
+					$ItemProduto = new Produto();
+					$ItemProduto = $ItemProduto->Read($ItemRow['id_produto']);
+			?>
+       		<tr>
+						<td><?php echo $ItemRow['data_venda']; ?></td>
+        		<td><?php echo $ItemProduto['nome_produto']; ?></td>
+            <td><?php echo $ItemProduto['periodo_produto']; ?></td>
+            <td><?php echo $ItemProduto['info_produto']; ?></td>
+        	</tr>
+		  	<?php
+				}
+			?>
+   		</tbody>
+ 	</table>
+
         <?php
 	}
 ?>

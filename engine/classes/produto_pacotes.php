@@ -7,14 +7,16 @@
 		//Nome das variaveis devem ser de acordo com as colunas da tabela respectiva no bd
 		private $id_produto_pacotes;
 		private $nome_pacote;
+		private $valor_pacote;
 		private $descricao_pacote;
 		private $fk_produto;
 
 		//setters
 		//Funcao que seta uma instancia da classe
-		public function SetValues($id_produto_pacotes, $nome_pacote, $descricao_pacote, $fk_produto){ 
+		public function SetValues($id_produto_pacotes, $nome_pacote, $valor_pacote, $descricao_pacote, $fk_produto){ 
 			$this->id_produto_pacotes = $id_produto_pacotes;
 			$this->nome_pacote = $nome_pacote;
+			$this->valor_pacote = $valor_pacote;
 			$this->descricao_pacote = $descricao_pacote;
 			$this->fk_produto = $fk_produto;
 		}
@@ -28,6 +30,7 @@
 						  (
 				 			id_produto_pacotes,
 							nome_pacote,
+							valor_pacote,
 							descricao_pacote,
 							fk_produto
 						  )  
@@ -35,6 +38,7 @@
 					(
 						'$this->id_produto_pacotes',
 						'$this->nome_pacote',
+						'$this->valor_pacote',
 						'$this->descricao_pacote',
 						'$this->fk_produto'
 					);
@@ -53,6 +57,7 @@
 				SELECT
 					 t5.id_produto_pacotes,					 
 					 t5.nome_pacote,
+					 t5.valor_pacote,
 					 t5.descricao_pacote,
 					 t5.fk_produto
 				FROM
@@ -77,6 +82,7 @@
 				SELECT
 					 t5.id_produto_pacotes,					 
 					 t5.nome_pacote,
+					 t5.valor_pacote,
 					 t5.descricao_pacote,
 					 t5.fk_produto
 				FROM
@@ -109,6 +115,7 @@
 				SELECT
 					 t5.id_produto_pacotes,					 
 					 t5.nome_pacote,
+					 t5.valor_pacote,
 					 t5.descricao_pacote,
 					 t5.fk_produto
 				FROM
@@ -131,6 +138,7 @@
 				UPDATE produto_pacotes SET
 				
 				  nome_pacote = '$this->nome_pacote',
+				  valor_pacote = '$this->valor_pacote',
 				  descricao_pacote = '$this->descricao_pacote',
 				  fk_produto = '$this->fk_produto'
 				  
@@ -180,6 +188,7 @@
 		function __construct(){ 
 			$this->id_produto_pacotes;
 			$this->nome_pacote;
+			$this->valor_pacote;
 			$this->descricao_pacote;
 			$this->fk_produto;
 		}
@@ -188,6 +197,7 @@
 		function __destruct(){
 			$this->id_produto_pacotes;
 			$this->nome_pacote;
+			$this->valor_pacote;
 			$this->descricao_pacote;
 			$this->fk_produto;
 		}	

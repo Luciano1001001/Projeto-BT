@@ -5,6 +5,7 @@
 	//parte1
 	$id_produto_pacotes= $_POST['id_produto_pacotes'];
 	$nome_pacote= $_POST['nome_pacote'];
+	$valor_pacote= $_POST['valor_pacote'];
 	$descricao_pacote= $_POST['descricao_pacote'];
 	$fk_produto= $_POST['fk_produto'];
 	
@@ -13,7 +14,7 @@
 	
 	//parte3
 	$Item = new Produto_pacotes();
-	$Item->SetValues($id_produto_pacotes, $nome_pacote, $descricao_pacote, $fk_produto);
+	$Item->SetValues($id_produto_pacotes, $nome_pacote, $valor_pacote, $descricao_pacote, $fk_produto);
 	
 	//parte4
 	switch($action){
