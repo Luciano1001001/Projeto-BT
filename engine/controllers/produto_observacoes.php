@@ -6,13 +6,14 @@
 	
 	$id_observacoes = $_POST['id_observacoes'];
 	$observacoes = $_POST['observacoes'];
-	
+	$fk_produto = $_POST['fk_produto'];
+
 	//parte2
 	$action = $_POST['action'];
 	
 	//parte3
-	$Item = new Produto_observacoes();
-	$Item->SetValues($id_observacoes, $observacoes); 
+	$Item = new Produto_observacoes;
+	$Item->SetValues($id_observacoes, $observacoes, $fk_produto); 
 		
 	//parte4
 	switch($action) {

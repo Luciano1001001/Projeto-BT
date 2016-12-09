@@ -1,4 +1,3 @@
-
 <script>
 	$(document).ready(function(e) {
 		$('#bread_home').click(function(e){
@@ -35,7 +34,8 @@
 		$('.EditarItem').click(function(e) {
 			e.preventDefault();
 			var id = $(this).attr('id');
-			$('#loader').load('viewers/admin/cadastro/produto.editar.php', {id:id});
+			alert(id);
+			$('#loader').load('viewers/admin/cadastro/produto/produto_editar.php');
 		});
 		
 		$('.ExcluirItem').click(function(e) {
@@ -137,8 +137,23 @@
             	<td><?php echo $ItemRow['info_produto']; ?></td>
                 
                 <td class="text-center DetalhesItem" id="<?php echo $ItemRow['id_produto']; ?>"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+               	
+               	<!--
                	<td class="text-center EditarItem" id="<?php echo $ItemRow['id_produto']; ?>"> <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></td>
+       	   	  	-->
+
+       	   	  	<form action="produto_editar.php" method="POST">
+       	   	  		<td class="text-center EditarItem" id="<?php echo $ItemRow['id_produto']; ?>"> <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></td>
+       	   	  		<input class="text-center" id="idProd" name="idProd" type="hidden" value="<?php echo $ItemRow['id_produto']; ?>" />
+       	   	  	</form>
+
+       	   	  	<!--
+       	   	  	<td class="text-center EditarItem" id="<?php echo $ItemRow['id_produto']; ?>"> <span class="glyphicon glyphicon-edit" arial-hidden="true"></span></td>
+       	   	  	-->
+
        	   	  	<td class="text-center ExcluirItem" id="<?php echo $ItemRow['id_produto']; ?>"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td> 
+
+       	   	  	
         	</tr>
 		  	<?php
 				}

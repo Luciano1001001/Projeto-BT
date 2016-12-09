@@ -11,6 +11,7 @@
 	require_once "classes/produto_pacotes.php";
 	require_once "classes/produto_valores.php";
 	require_once "classes/produto_controle.php";
+	require_once "classes/produto_observacoes.php";
 	
 	function ExibeData($data){
 		$dataCerta = explode('-', $data);

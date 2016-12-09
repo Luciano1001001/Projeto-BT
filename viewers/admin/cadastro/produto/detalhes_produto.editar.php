@@ -1,4 +1,3 @@
-
 <script>
 	$(document).ready(function(e) {
 		$('#bread_home').click(function(e){
