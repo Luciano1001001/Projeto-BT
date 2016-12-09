@@ -170,13 +170,16 @@
 		
 		$('.ExcluirItem').click(function(e) {
 			e.preventDefault();
-			var id = $('#id_produto_pacotes').val();
+			//var id = $('#id_produto_pacotes').val();
+			var id = $(this).attr('id');
+			alert(id);
 			if(confirm("Tem certeza que deseja excluir este dado?")){
 				$.ajax({
 				   url: 'engine/controllers/produto_pacotes.php',
 				   data: {
 						   	id_produto_pacotes : id,
 							nome_pacote : null,
+							valor_pacote : null,
 							descricao_pacote : null,
 							fk_produto : null,
 

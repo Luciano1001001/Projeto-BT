@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100113
 File Encoding         : 65001
 
-Date: 2016-11-08 19:50:40
+Date: 2016-12-09 14:45:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,11 +34,7 @@ CREATE TABLE `cliente` (
   `celular_cliente` varchar(30) NOT NULL,
   `dtcadastro_cliente` date NOT NULL,
   PRIMARY KEY (`id_cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of cliente
--- ----------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for produto
@@ -54,11 +50,7 @@ CREATE TABLE `produto` (
   `alimentacao_produto` text NOT NULL,
   `estrutura_produto` text NOT NULL,
   PRIMARY KEY (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of produto
--- ----------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for produto_controle
@@ -71,11 +63,7 @@ CREATE TABLE `produto_controle` (
   PRIMARY KEY (`id_controle`),
   KEY `fk_produto` (`fk_produto`) USING BTREE,
   CONSTRAINT `produto_controle_ibfk_1` FOREIGN KEY (`fk_produto`) REFERENCES `produto` (`id_produto`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of produto_controle
--- ----------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for produto_observacoes
@@ -83,13 +71,12 @@ CREATE TABLE `produto_controle` (
 DROP TABLE IF EXISTS `produto_observacoes`;
 CREATE TABLE `produto_observacoes` (
   `id_observacoes` int(11) NOT NULL AUTO_INCREMENT,
-  `observacoes` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_observacoes`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of produto_observacoes
--- ----------------------------
+  `observacoes` text NOT NULL,
+  `fk_produto` int(11) NOT NULL,
+  PRIMARY KEY (`id_observacoes`),
+  KEY `fk_produto` (`fk_produto`),
+  CONSTRAINT `produto_observacoes_ibfk_1` FOREIGN KEY (`fk_produto`) REFERENCES `produto` (`id_produto`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for produto_pacotes
@@ -104,11 +91,7 @@ CREATE TABLE `produto_pacotes` (
   PRIMARY KEY (`id_produto_pacotes`),
   KEY `fk_produto` (`fk_produto`) USING BTREE,
   CONSTRAINT `produto_pacotes_ibfk_1` FOREIGN KEY (`fk_produto`) REFERENCES `produto` (`id_produto`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of produto_pacotes
--- ----------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for produto_valores
@@ -119,19 +102,12 @@ CREATE TABLE `produto_valores` (
   `valor_produto` varchar(255) NOT NULL,
   `tipo_produto` text NOT NULL,
   `grupo_produto` text NOT NULL,
-  `fk_observacoes` int(11) DEFAULT NULL,
   `info_pagamento` text NOT NULL,
   `fk_produto` int(11) NOT NULL,
   PRIMARY KEY (`id_produto_valores`),
   KEY `fk_produto` (`fk_produto`) USING BTREE,
-  KEY `fk_observacoes` (`fk_observacoes`) USING BTREE,
-  CONSTRAINT `produto_valores_ibfk_1` FOREIGN KEY (`fk_observacoes`) REFERENCES `produto_observacoes` (`id_observacoes`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `produto_valores_ibfk_2` FOREIGN KEY (`fk_produto`) REFERENCES `produto` (`id_produto`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of produto_valores
--- ----------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for usuario
@@ -146,8 +122,4 @@ CREATE TABLE `usuario` (
   `celular_usuario` varchar(30) NOT NULL,
   `nivel_usuario` varchar(10) NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of usuario
--- ----------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;

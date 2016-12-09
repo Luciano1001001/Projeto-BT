@@ -1,4 +1,3 @@
-
 <script>
 	$(document).ready(function(e) {
 		$('#bread_home').click(function(e){
@@ -73,49 +72,11 @@
 					});	
 				}
 		});
-		
-		$('#Excluir').click(function(e) {
-			e.preventDefault();
-			
-			var id = $('#id_produto').val();
-			if(confirm("Tem certeza que deseja excluir este dado?")){
-				$.ajax({
-				   url: 'engine/controllers/produto.php',
-				   data: {				   
-						   	id_produto : id,
-							nome_produto : null,
-							info_produto : null,
-							periodo_produto : null,
-							transporte_produto : null,
-							hospedagem_produto : null,
-							alimentacao_produto : null,
-							estrutura_produto : null,
-
-							action: 'delete'
-				   },
-				   error: function() {
-						alert('Erro na conexão com o servidor. Tente novamente em alguns segundos.');
-				   },
-				   success: function(data) {
-						if(data === 'true'){
-							alert('Item deletado com sucesso!');
-							$('#loader').load('viewers/admin/cadastro/produto.lista.php');
-						}
-						
-						else{
-							alert('Erro ao conectar com banco de dados. Aguarde e tente novamente em alguns instantes.');	
-						}
-				   },
-				   
-				   type: 'POST'
-				});	
-			}
-		});
 	});
 </script>
 
 <?php
-	require_once "../../../engine/config.php";
+	require_once "../../../../engine/config.php";
 ?>
 
 <ol class="breadcrumb">
@@ -132,7 +93,6 @@
 <section class="btn-group" role="group" aria-label="...">
     <button type="button" class="btn btn-warning" id="Voltar"> <span class="glyphicon glyphicon-chevron-left" arial-hidden="true"></span> Voltar</button>
     <button type="button" class="btn btn-success" id="Salvar"> <span class="glyphicon glyphicon glyphicon-floppy-saved" arial-hidden="true"></span> Salvar </button>
-   	<button type="button" class="btn btn-danger" id="Excluir"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Excluir </button>
 </section>
 
 <br><br>

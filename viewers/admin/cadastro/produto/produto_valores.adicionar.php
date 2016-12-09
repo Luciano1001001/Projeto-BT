@@ -1,3 +1,13 @@
+<?php
+	require_once "../../../../engine/config.php";
+
+	$ItemProduto = new Produto();
+	$ItemProduto = $ItemProduto->ReadAll();
+	
+	$chave_produto = end($ItemProduto);
+	$chave_produto = $chave_produto['id_produto'];
+?>
+
 <script>
 	$(document).ready(function(e) {
 		$('#bread_home').click(function(e){
@@ -22,36 +32,43 @@
 		
 		$('#Salvar').click(function(e) {
     	    e.preventDefault();
-			alert("Produto cadastrado com sucesso!")
-			$('#loader').load('viewers/admin/cadastro/produto.lista.php');
-		});
-		
-		$('#Teste').click(function(e) {
-    	    e.preventDefault();
-			var observacoes_produto = $('#observacoes_produto').val();
-			if(confirm("Salvar?")){
-				$.ajax({
-				   url: 'engine/controllers/produto_valores.php',
-				   data: {
-							observacoes_produto : observacoes_produto,
 
-							action: 'update'
-				   },
-				   error: function() {
-						alert('Erro na conexão com o servidor. Tente novamente em alguns segundos.');
-				   },
-				   success: function(data) {
-					   console.log(data);
-						if(data === 'true'){
-							$('#loader').load('viewers/admin/cadastro/produto/produto_valores.adicionar.php');
-						}else{
-							alert('Erro ao conectar com banco de dados. Aguarde e tente novamente em alguns instantes.');
-						}
-				   },
-				   type: 'POST'
-				});	
+    	    var observacoes = $('#observacoes_produto').val();
+    	    var fk_produto = "<?php echo $chave_produto; ?>";
+						
+			//validar os imputs
+			if(observacoes === ""){
+				return alert('O campos "Observações Gerais" deve ser preenchido!');
 			}
-			$('#loader').load('viewers/admin/cadastro/produto/produto_valores.adicionar.php');
+			else{
+					$.ajax({
+						url: 'engine/controllers/produto_observacoes.php',
+					   data: {
+						   	id_observacoes : null,
+							observacoes : observacoes,
+							fk_produto : fk_produto,
+							
+							action: 'create'
+					   },
+					   
+					   error: function() {
+							alert('Erro na conexão com o servidor. Tente novamente em alguns segundos.');
+					   },
+					   success: function(data) {
+						   console.log(data);
+							if(data === 'true'){
+								alert('Produto cadastrado com sucesso!');
+								$('#loader').load('viewers/admin/cadastro/produto.lista.php');
+							}
+
+							else{
+								alert('Erro ao conectar com banco de dados. Aguarde e tente novamente em alguns instantes.');
+							}
+					   },
+					   
+					   type: 'POST'
+					});
+				}
 		});
 		
 		$('.ExcluirItem').click(function(e) {
@@ -65,7 +82,6 @@
 							valor_produto : null,
 							tipo_produto : null,
 							grupo_produto : null,
-							observacoes_produto : null,
 							info_pagamento : null,
 							fk_produto : null,
 
@@ -93,7 +109,6 @@
 			var valor_produto = $('#valor_produto').val();
 			var tipo_produto = $('#tipo_produto').val();
 			var grupo_produto = $('#grupo_produto').val();
-			var fk_observacoes = 0;
 			var info_pagamento = $('#info_pagamento').val();
 			var fk_produto = $('#fk_produto').val();
 						
@@ -109,7 +124,6 @@
 							valor_produto : valor_produto,
 							tipo_produto : tipo_produto,
 							grupo_produto : grupo_produto,
-							fk_observacoes : fk_observacoes,
 							info_pagamento : info_pagamento,
 							fk_produto : fk_produto,					
 							
@@ -139,7 +153,20 @@
 </script>
 
 <?php
-	require_once "../../../../engine/config.php";
+	$Controle = new produto_controle();
+	$Controle = end($Controle->ReadAll());
+	$Controle = $Controle['fk_produto'];
+
+	$Pacotes = new produto_pacotes();
+	$Pacotes = $Pacotes->ReadAll();
+
+	$soma = 0;
+
+	foreach ($Pacotes as $pac) {
+		if($pac['fk_produto'] == $Controle){
+			$soma = $soma + $pac['valor_pacote'];
+		}
+	}
 ?>
 
 <ol class="breadcrumb">
@@ -156,9 +183,6 @@
 <section class="btn-group" role="group" aria-label="...">
     <button type="button" class="btn btn-warning" id="Voltar"> <span class="glyphicon glyphicon-chevron-left" arial-hidden="true"></span> Voltar</button>
     <button type="button" class="btn btn-success" id="Salvar"> <span class="glyphicon glyphicon glyphicon-floppy-saved" arial-hidden="true"></span> Salvar</button>
-    
-    
-    <button type="button" class="btn btn-success" id="Teste"> <span class="glyphicon glyphicon glyphicon-floppy-saved" arial-hidden="true"></span> Teste</button>
 </section>
 
 <br><br>
@@ -171,10 +195,17 @@
 		</div>
     </section>
 
-	<section class="col-md-6">
+	<section class="col-md-3">
     	<div class="input-group">
   			<span class="input-group-addon" id="basic-addon1">Valor do Pacote *</span>
   			<input type="text" class="form-control" id="valor_produto" placeholder="Exemplo: City Tour..." aria-describedby="basic-addon1">
+		</div>
+    </section>
+
+    <section class="col-md-3">
+    	<div class="input-group">
+  			<span class="input-group-addon" id="basic-addon1">Total Pacotes Extras</span>
+  			<input type="text" class="form-control" id="total_pacotes" value="R$ <?php echo $soma; ?>" aria-describedby="basic-addon1" disabled>
 		</div>
     </section> 
 </section>
@@ -207,9 +238,6 @@
 
 <!-- Pegar ID do produto e passar para a FK de pacote -->
 <?php
-	$ItemProduto = new Produto();
-	$ItemProduto = $ItemProduto->ReadAll();
-	
 	$ultimoProd = end($ItemProduto); //Pega o último item do array
 ?>
 

@@ -7,15 +7,16 @@
 		//Nome das variaveis devem ser de acordo com as colunas da tabela respectiva no bd
 		private $id_observacoes;
 		private $observacoes;
+		private $fk_produto;
 				
 
 		//setters
 		
 		//Funcao que seta uma instancia da classe
-		public function SetValues($id_observacoes, $observacoes) { 
+		public function SetValues($id_observacoes, $observacoes, $fk_produto) { 
 			$this->id_observacoes = $id_observacoes;
 			$this->observacoes = $observacoes;
-						
+			$this->fk_produto = $fk_produto;
 		}
 		
 		
@@ -28,12 +29,14 @@
 				INSERT INTO produto_observacoes 
 						  (
 				 			id_observacoes,
-				 			observacoes
+				 			observacoes,
+				 			fk_produto
 						  )  
 				VALUES 
 					(
 				 			'$this->id_observacoes',
-				 			'$this->observacoes'
+				 			'$this->observacoes',
+				 			'$this->fk_produto'
 					);
 			";
 			
@@ -49,7 +52,8 @@
 			$sql = "
 				SELECT
 					 t1.id_observacoes,
-					 t1.observacoes
+					 t1.observacoes,
+					 t1.fk_produto
 				FROM
 					produto_observacoes AS t1
 				WHERE
@@ -72,7 +76,8 @@
 			$sql = "
 				SELECT
 					 t1.id_observacoes,
-					 t1.observacoes
+					 t1.observacoes,
+					 t1.fk_produto
 				FROM
 					produto_observacoes AS t1
 				
@@ -104,7 +109,8 @@
 			$sql = "
 				SELECT
 					 t1.id_observacoes,
-					 t1.observacoes
+					 t1.observacoes,
+					 t1.fk_produto
 				FROM
 					produto_observacoes AS t1
 					
@@ -126,7 +132,8 @@
 			$sql = "
 				UPDATE produto_observacoes SET
 				
-				  observacoes = '$this->observacoes'
+				  observacoes = '$this->observacoes',
+				  fk_produto = '$this->fk_produto'
 				
 				WHERE id_observacoes = '$this->id_observacoes';
 				
@@ -172,22 +179,17 @@
 		
 		
 		//constructor 
-		
 		function __construct() { 
 			$this->id_observacoes;
 			$this->observacoes;
-			
-			
+			$this->fk_produto;
 		}
 		
 		//destructor
 		function __destruct() {
 			$this->id_observacoes;
 			$this->observacoes;
-			
-			
-		}
-			
+			$this->fk_produto;			
+		}		
 	};
-
 ?>
