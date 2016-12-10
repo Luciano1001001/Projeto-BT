@@ -1,0 +1,21 @@
+{
+	"name" : "nxstep/brasiltur",
+	"description" : "Sistema Web para a BrasilTur",
+	"type" : "project",
+	"require" : {
+		"rctnet/opencnabphp" : "dev-master",
+		"cobregratis/boletophp" : "dev-master"
+	},
+	"license" : "MIT License",
+	"authors" : [{
+			"name" : "NextStep - Equipe Kepler",
+			"email" : "contato@nxstep.com.br"
+		}
+	],
+	"minimum-stability" : "dev",
+	"support" : {
+		"source" : "https://github.com/marlonparanhos/Projeto-BT.git",
+		"issues" : "https://github.com/marlonparanhos/Projeto-BT/issues",
+		"email" : "contato@nxstep.com.br"
+	}
+}

@@ -1,0 +1,92 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "cb6f9d3593889846f8e44586b9cf23e0",
+    "packages": [
+        {
+            "name": "cobregratis/boletophp",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CobreGratis/boletophp.git",
+                "reference": "a59d8b525c5960aa98215a0e285204744962e9b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CobreGratis/boletophp/zipball/a59d8b525c5960aa98215a0e285204744962e9b6",
+                "reference": "a59d8b525c5960aa98215a0e285204744962e9b6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Projeto Código-Aberto de Sistema de Boletos bancários em PHP",
+            "homepage": "http://boletophp.com.br/",
+            "keywords": [
+                "boleto",
+                "boletophp",
+                "php"
+            ],
+            "time": "2016-11-30 12:23:13"
+        },
+        {
+            "name": "rctnet/opencnabphp",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/QuilhaSoft/OpenCnabPHP.git",
+                "reference": "445bf141a6fcb75d780313691dbc00bff057adff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/QuilhaSoft/OpenCnabPHP/zipball/445bf141a6fcb75d780313691dbc00bff057adff",
+                "reference": "445bf141a6fcb75d780313691dbc00bff057adff",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CnabPHP\\": [
+                        "src"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Rogerio Muniz de Castro",
+                    "email": "rogerio@ciatec.net"
+                }
+            ],
+            "description": "Conjunto de classes para geração e leitura de arquivos Cnab de remessa e retorno",
+            "keywords": [
+                "boleto",
+                "cnab",
+                "cnab240",
+                "cnab400",
+                "remessa",
+                "retorno"
+            ],
+            "time": "2016-12-08 12:58:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "rctnet/opencnabphp": 20,
+        "cobregratis/boletophp": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
