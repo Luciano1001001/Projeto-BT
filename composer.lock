@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+    "hash": "29c44616d5f4e9c608c031bbd72a37a6",
     "content-hash": "cb6f9d3593889846f8e44586b9cf23e0",
     "packages": [
         {
@@ -40,12 +41,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/QuilhaSoft/OpenCnabPHP.git",
-                "reference": "445bf141a6fcb75d780313691dbc00bff057adff"
+                "reference": "58cebead7d6a7ff329e9a55939e1a1ed89e04362"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/QuilhaSoft/OpenCnabPHP/zipball/445bf141a6fcb75d780313691dbc00bff057adff",
-                "reference": "445bf141a6fcb75d780313691dbc00bff057adff",
+                "url": "https://api.github.com/repos/QuilhaSoft/OpenCnabPHP/zipball/58cebead7d6a7ff329e9a55939e1a1ed89e04362",
+                "reference": "58cebead7d6a7ff329e9a55939e1a1ed89e04362",
                 "shasum": ""
             },
             "require": {
@@ -75,7 +76,7 @@
                 "remessa",
                 "retorno"
             ],
-            "time": "2016-12-08 12:58:00"
+            "time": "2016-12-08 19:05:42"
         }
     ],
     "packages-dev": [],

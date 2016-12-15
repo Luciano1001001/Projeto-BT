@@ -1,0 +1,130 @@
+%----------------------------------------------------------------------------%
+% Autores: Elias C. Alves,
+% NextStep Empresa Júnior de Sistemas de Informação
+% Licenciado sobre o GNU GENERAL PUBLIC LICENSE Version 3
+% unixelias@gmail.com
+
+\documentclass[a4paper, 12pt]{article}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{helvet}
+
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{fancyref}
+\usepackage{fancyhdr}
+
+%----------------------------------------------------------------------------%
+% Variáveis referentes ao projeto e ao documento
+\newcommand\semana{11/12 - 17/12/2016}
+\newcommand\datareuniao{15/12/2016}
+%\newcommand\datareuniaob{17/12/2016}
+\newcommand\equipe{Equipe Kepler}
+\newcommand\projeto{Projeto BrasilTur}
+\newcommand\semestre{02 - 2016}
+\newcommand\assunto{Relatório de reunião com o cliente}
+\newcommand\palavraschave{controle do tempo; protocolo; trabalho; tarefas}
+\newcommand\nome{\projeto, \equipe, \semestre}
+\newcommand\titulo{Reunião com o Cliente em \datareuniao}
+%----------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------%
+% Insere metadados no PDF
+\usepackage[pdftex, pdfcreator={TeXstudio}]{hyperref}
+\hypersetup{
+		pdfauthor={\nome},
+		pdftitle={\titulo},
+		pdfsubject={\assunto},
+		pdfkeywords={\palavraschave},
+		pdfproducer={\equipe},
+}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+%----------------------------------------------------------------------------%
+
+\begin{document}
+
+%----------------------------------------------------------------------------%
+% Página de Título
+\begin{titlepage}
+
+\begin{center}
+\includegraphics[width=\linewidth]{../../images/next_step_logo.png} \\[0.8cm]
+\textsc{\LARGE NextStep - Empresa Júnior} \\[0.2cm]
+\textsc{\LARGE Sistemas de Informação - UFVJM} \\[0.2cm]
+\textsc{\LARGE Diretoria de Projetos} \\[0.2cm]
+\textsc{\equipe} \\[1.3cm]
+\vfill
+%Descomentar para incluir a logo do projeto
+\includegraphics[width=0.3\linewidth]{../../../img/brtur1.png} \\[0.8cm]
+\textsc{\LARGE \projeto} \\[0.8cm]
+\vfill
+\vfill
+{\LARGE \titulo \\[0.4cm]}
+\includegraphics[width=\linewidth]{../../images/jc_rodape.png} \\[0.8cm]
+\end{center}
+\end{titlepage}
+\clearpage
+%----------------------------------------------------------------------------%
+% Início de subseção
+%----------------------------------------------------------------------------%
+\subsection*{Relatório de reunião com cliente}
+
+%----------------------------------------------------------------------------%
+
+\subsubsection*{Pauta}
+\begin{itemize}
+	\item Repasses sobre o projeto;
+	\item Novo prazo para entrega;
+	\item Funções para emissão de boletos;
+	\item Geração de relatórios;
+\end{itemize}
+
+\subsubsection*{Participantes da reunião}
+\begin{itemize}
+	\item Elias da Cunha Alves - Diretor Interino de Projetos
+	\item Paulo Henrique Cruz - Cliente
+\end{itemize}
+
+\subsubsection*{Repasses sobre o projeto}
+O cliente foi atualizado sobre o estado do projeto e foi informado do atraso decorrente da greve docente da UFVJM, que fez com que a equipe se dispersasse, dificultando o processo de desenvolvimento. Além disso, houveram algumas dúvidas de ordem técnica a respeito do processo de emissão de boletos.
+
+\subsubsection*{Novo prazo para entrega}
+O Cliente relatou insatisfação com os atrasos e comentou que pensou em cancelar o contrato.
+Contudo, disse que precisa do sistema funcionando com certa urgência e disse que entende as dificuldades da empresa júnior, mas espera que o projeto seja finalizado em breve.
+
+\subsubsection*{Processo de emissão de boletos}
+O cliente precisa de dois tipo de boletos:
+\begin{itemize}
+	\item Boleto único em Formato A4.
+	\item Carnê de prestações com vários boletos, em Formato A4, com capa com informações do sacado e 3 boletos por folha com canhoto.
+\end{itemize}
+
+Os arquivos de remessa bancária deverão ser baixados pelo cliente e enviados ao banco, enquanto que os de retorno devem ser inseridos no sistema pelos usuários.
+O Cliente desejava um sistema que fizesse isso de maneira automática, mas o SICOOB informou que isso não pode ser feito, por limitações do sistema deles.
+ 
+\subsubsection*{Relatórios}
+O Cliente deseja ver a parte de relatórios funcionando e listou alguns dos que deseja. Dentre outros, relatórios com diferenciação entre clientes maiores e menores de idade, pois nem sempre quem contrata é quem viaja. Então seria necessário uma diferenciação entre o contratante e o passageiro.
+O mesmo se aplica para a geração de contratos. O Cliente deseja a emissão automática de contratos, para tal, também é necessário fazer essa diferenciação entre contratante e passageiro. Sendo assim ele disse que pode ser o nome de apenas um contratante e em outro campo, uma listagem dos passageiros. Junto com o contrato, deve ser gerada uma autorização para menores de idade.
+
+\subsubsection*{Outros assuntos}
+O Cliente repassou arquivos reais com o layouts de emissão e retorno bancários, além dos modelos de contrato e outras informações, que serão compartilhadas com os membros da equipe.
+O Cliente pediu um retorno sobre a hospedagem, que segundo ele, ficou a cargo do André, Analista da Next Step.
+
+\subsubsection*{Observações}
+O Cliente solicitou a opção de o cliente fazer o pagamento de diferentes formas, assim, o valor de um contrato poderia ser pago parte com cheque e parte com boleto, por exemplo.
+
+\clearpage
+% Fim de Subseção
+%----------------------------------------------------------------------------%
+
+
+\end{document}

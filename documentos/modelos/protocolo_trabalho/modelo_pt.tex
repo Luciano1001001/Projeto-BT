@@ -1,0 +1,147 @@
+%----------------------------------------------------------------------------%
+% Autores: Elias C. Alves,
+% NextStep Empresa Júnior de Sistemas de Informação
+% Licenciado sobre o GNU GENERAL PUBLIC LICENSE Version 3
+% unixelias@gmail.com
+
+\documentclass[a4paper, 12pt]{article}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{helvet}
+
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{fancyref}
+\usepackage{fancyhdr}
+
+%----------------------------------------------------------------------------%
+% Variáveis referentes ao projeto e ao documento
+\newcommand\semana{23/10 - 29/10/2016}
+\newcommand\datareuniao{??/10/2016}
+\newcommand\datareuniaob{??/10/2016}
+\newcommand\equipe{Equipe de Pesquisa Joan Clarke}
+\newcommand\projeto{Relatório Semanal de Atividades}
+\newcommand\semestre{02 - 2016}
+\newcommand\assunto{Atividades desenvolvidas e carga horária da equipe}
+\newcommand\palavraschave{controle do tempo; protocolo; trabalho; tarefas}
+\newcommand\nome{\projeto, \equipe, \semestre}
+\newcommand\titulo{Protocolo de Trabalho \semana}
+%----------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------%
+% Insere metadados no PDF
+\usepackage[pdftex, pdfcreator={TeXstudio}]{hyperref}
+\hypersetup{
+		pdfauthor={\nome},
+		pdftitle={\titulo},
+		pdfsubject={\assunto},
+		pdfkeywords={\palavraschave},
+		pdfproducer={\equipe},
+}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+%----------------------------------------------------------------------------%
+
+\begin{document}
+
+%----------------------------------------------------------------------------%
+% Página de Título
+\begin{titlepage}
+
+\begin{center}
+\includegraphics[width=\linewidth]{../../images/next_step_logo.png} \\[0.8cm]
+\textsc{\LARGE NextStep - Empresa Júnior} \\[0.2cm]
+\textsc{\LARGE Sistemas de Informação - UFVJM} \\[0.2cm]
+\textsc{\LARGE Diretoria de Projetos} \\[0.2cm]
+\textsc{\equipe} \\[1.3cm]
+\vfill
+%Descomentar para incluir a logo do projeto
+%\includegraphics[width=0.6\linewidth]{../images/imagem.png} \\[0.8cm]
+\textsc{\LARGE \projeto} \\[0.8cm]
+\vfill
+\vfill
+{\LARGE \titulo \\[0.4cm]}
+\includegraphics[width=\linewidth]{../../images/jc_rodape.png} \\[0.8cm]
+\end{center}
+\end{titlepage}
+\clearpage
+%----------------------------------------------------------------------------%
+
+\begin{center}
+\textsc{\LARGE Descrição das discussões semanais} \\[0.2cm]
+\end{center}
+\section*{Discussão}
+
+
+\section*{Encaminhamentos}
+
+
+\subsection*{Elias Alves}
+\begin{itemize}
+	\item 
+\end{itemize}
+
+\subsection*{Gabriel Rufino}
+\begin{itemize}
+	\item 
+\end{itemize}
+
+\subsection*{Natan Macedo}
+\begin{itemize}
+	\item 
+\end{itemize}
+
+\clearpage
+
+%----------------------------------------------------------------------------%
+% Lançamento das atividades desenvolvidas pelos membros com controle de horas gastas
+
+\section*{Elias Alves}
+\subsection*{Função: Líder de Pesquisas}
+
+\begin{tabularx}{\linewidth}{l|X|l|l} \toprule
+    \bfseries Título & \bfseries Descrição & \bfseries Data & \bfseries Duração
+    \\ \midrule
+    Reuniões & Reunião Semanal & \datareuniao & 2 Hr.
+    \\ \bottomrule
+\end{tabularx}
+
+%----------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------%
+
+\section*{Gabriel Rufino}
+\subsection*{Função: Desenvolvedor/Pesquisador}
+
+\begin{tabularx}{\linewidth}{l|X|l|l} \toprule
+    \bfseries Título & \bfseries Descrição & \bfseries Data & \bfseries Duração
+    \\ \midrule
+    Reuniões & Reunião Semanal & \datareuniao & 2 Hr.
+    \\ \bottomrule
+\end{tabularx}
+
+%----------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------%
+
+\section*{Natan Macedo}
+\subsection*{Função: Desenvolvedor/Pesquisador}
+
+\begin{tabularx}{\linewidth}{l|X|l|l} \toprule
+	\bfseries Título & \bfseries Descrição & \bfseries Data & \bfseries Duração
+	\\ \midrule
+	Reuniões & Reunião Semanal & \datareuniao &  2Hr.
+	\\ \midrule
+\end{tabularx}
+\clearpage
+%----------------------------------------------------------------------------%
+
+\end{document}
