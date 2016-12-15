@@ -1,0 +1,70 @@
+\usetheme{Rochester}
+
+\RequirePackage{pgf}
+
+\pgfdeclareimage[width=1.0\paperwidth]{next_step_logo}{next_step_logo}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamercovered{transparent}
+
+\beamer@headheight=0.13\paperwidth
+
+\definecolor{verdeescuro}{RGB}{86,134,82}
+\definecolor{azulescuro}{RGB}{41,21,185}
+\definecolor{azulclaro}{RGB}{79,57,255}
+\definecolor{cinza}{HTML}{686868}
+\definecolor{cinzaclaro}{HTML}{eeeeee}
+\definecolor{airblue}{rgb}{.13 ,.43 ,.68}
+\setbeamercolor*{Title bar}{fg=azulescuro}
+\setbeamercolor*{Location bar}{fg=verdeescuro,bg=cinzaclaro}
+\setbeamercolor*{frametitle}{parent=Title bar}
+\setbeamercolor*{block title}{bg=azulclaro,fg=white}
+\setbeamercolor*{block body}{bg=cinzaclaro,fg=cinza}
+\setbeamercolor*{normal text}{bg=white,fg=cinza}
+\setbeamercolor*{section in head/foot}{bg=airblue,fg=azulescuro}
+
+\usecolortheme[named=verdeescuro]{structure}
+
+\setbeamerfont{section in head/foot}{size=\tiny,series=\normalfont}
+\setbeamerfont{frametitle}{size=\Large}
+
+%\setbeamertemplate{headline}
+\setbeamertemplate{frametitle}
+{
+  \vskip-0.25\beamer@headheight
+  \vskip-\baselineskip
+  \vskip-0.2cm
+  \hskip0.7cm\usebeamerfont*{frametitle}\insertframetitle
+  \vskip-0.10em
+  \hskip0.7cm\usebeamerfont*{framesubtitle}\insertframesubtitle
+}
+
+\setbeamertemplate{headline}
+{
+  \pgfuseimage{next_step_logo}
+  \vskip -1.95cm
+  \linethickness{0.0pt}
+
+  \framelatex{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.3\beamer@headheight]{Title bar}
+    \usebeamerfont{section in head/foot}%
+    \insertsectionnavigationhorizontal{0pt}{\hskip0.22cm}{}%
+  \end{beamercolorbox}}
+
+  \framelatex{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.7\beamer@headheight]{Title bar}
+  \end{beamercolorbox}}
+}
+
+\setbeamertemplate{footline}
+{
+  \linethickness{0.25pt}
+  \framelatex{
+  \begin{beamercolorbox}[leftskip=.3cm,wd=\paperwidth,ht=0.3\beamer@headheight,sep=0.1cm]{Location bar}
+    \usebeamerfont{section in head/foot}%
+    \insertshortauthor~|~\insertshorttitle
+    \hfill
+    \insertframenumber/\inserttotalframenumber
+  \end{beamercolorbox}}
+}
+
