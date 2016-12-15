@@ -1,0 +1,195 @@
+%----------------------------------------------------------------------------%
+% Autores: Elias C. Alves,
+% NextStep Empresa Júnior de Sistemas de Informação
+% Licenciado sobre o GNU GENERAL PUBLIC LICENSE Version 3
+% unixelias@gmail.com
+
+\documentclass[a4paper, 12pt]{article}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{helvet}
+
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{fancyref}
+\usepackage{fancyhdr}
+
+%----------------------------------------------------------------------------%
+% Variáveis referentes ao projeto e ao documento
+\newcommand\semana{12/06 - 18/06/2016}
+\newcommand\datareuniao{15/06/2016}
+\newcommand\equipe{Equipe de Pesquisa Joan Clarke}
+\newcommand\projeto{Ferramentas de Compartilhamento de Código}
+\newcommand\semestre{01 - 2016}
+\newcommand\assunto{Relatório de pesquisa desenvolvida}
+\newcommand\palavraschave{controle do tempo; protocolo; trabalho; tarefas}
+\newcommand\nome{\projeto, \equipe, \semestre}
+\newcommand\titulo{Relatório de Pesquisa}
+%----------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------%
+% Insere metadados no PDF
+\usepackage[pdftex, pdfcreator={TeXstudio}]{hyperref}
+\hypersetup{
+		pdfauthor={\nome},
+		pdftitle={\titulo},
+		pdfsubject={\assunto},
+		pdfkeywords={\palavraschave},
+		pdfproducer={\equipe},
+}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+%----------------------------------------------------------------------------%
+
+\begin{document}
+
+%----------------------------------------------------------------------------%
+% Página de Título
+\begin{titlepage}
+
+\begin{center}
+\includegraphics[width=\linewidth]{../images/next_step_logo.png} \\[0.8cm]
+\textsc{\LARGE NextStep - Empresa Júnior} \\[0.2cm]
+\textsc{\LARGE Sistemas de Informação - UFVJM} \\[0.2cm]
+\textsc{\LARGE Diretoria de Projetos} \\[0.2cm]
+\textsc{\equipe} \\[1.3cm]
+\vfill
+%Descomentar para incluir a logo do projeto
+%\includegraphics[width=0.6\linewidth]{images/imagem.png} \\[0.8cm]
+\textsc{\LARGE \projeto} \\[0.8cm]
+\vfill
+\vfill
+{\LARGE \titulo \\[0.4cm]}
+\includegraphics[width=\linewidth]{../images/jc_rodape.png} \\[0.8cm]
+\end{center}
+\end{titlepage}
+\clearpage
+%----------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------%
+% Descrição das ferramentas pesquisadas.
+% * Dividimos em seções por assunto e em cada assunto, uma subseção descreve 
+%   a ferramenta a ser apresentada.
+% * Existem alguns campos como exemplo, mas podemos acrescentar outros se
+%   necessário
+%----------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------%
+% Início de seção
+\section{Assunto}
+
+%----------------------------------------------------------------------------%
+% Início de subseção
+\subsection{Nome da Ferramenta}
+
+\subsubsection{Descrição}
+Breve descrição da ferramenta
+
+\subsubsection{Formato de dados}
+Descrição do formato dos dados, quantidade de dados
+
+\subsubsection{Limite de usuários}
+Descrever como é tratado o limite de usuários da ferramenta
+
+\subsubsection{API}
+Descrição das APIs da ferramenta
+
+\subsubsection{Extensões}
+Descrição dos plugins e/ou extensões de interesse
+
+\subsubsection{Licença}
+Descrição da licença da ferramenta
+
+\subsubsection{Hospedagem e segurança de dados}
+Descrição das implicações da política de segurança da informação e política de privacidade dos dados
+
+\subsubsection{Observações}
+Observações, se necessário
+
+\clearpage
+% Fim de Subseção
+%----------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------%
+% Início de subseção
+\subsection{Nome da Ferramenta}
+
+\subsubsection{Descrição}
+Breve descrição da ferramenta
+
+\subsubsection{Formato de dados}
+Descrição do formato dos dados, quantidade de dados
+
+\subsubsection{Limite de usuários}
+Descrever como é tratado o limite de usuários da ferramenta
+
+\subsubsection{API}
+Descrição das APIs da ferramenta
+
+\subsubsection{Extensões}
+Descrição dos plugins e/ou extensões de interesse
+
+\subsubsection{Licença}
+Descrição da licença da ferramenta
+
+\subsubsection{Hospedagem e segurança de dados}
+Descrição das implicações da política de segurança da informação e política de privacidade dos dados
+
+\subsubsection{Observações}
+Observações, se necessário
+
+\clearpage
+% Fim de Subseção
+%----------------------------------------------------------------------------%
+% Fim de Seção
+%----------------------------------------------------------------------------%
+
+
+%----------------------------------------------------------------------------%
+% Início de seção
+\section{Assunto seguinte}
+
+%----------------------------------------------------------------------------%
+% Início de subseção
+\subsection{Nome da Ferramenta}
+
+\subsubsection{Descrição}
+Breve descrição da ferramenta
+
+\subsubsection{Formato de dados}
+Descrição do formato dos dados, quantidade de dados
+
+\subsubsection{Limite de usuários}
+Descrever como é tratado o limite de usuários da ferramenta
+
+\subsubsection{API}
+Descrição das APIs da ferramenta
+
+\subsubsection{Extensões}
+Descrição dos plugins e/ou extensões de interesse
+
+\subsubsection{Licença}
+Descrição da licença da ferramenta
+
+\subsubsection{Hospedagem e segurança de dados}
+Descrição das implicações da política de segurança da informação e política de privacidade dos dados
+
+\subsubsection{Observações}
+Observações, se necessário
+
+\clearpage
+% Fim de Subseção
+%----------------------------------------------------------------------------%
+% Fim de Seção
+%----------------------------------------------------------------------------%
+
+
+\end{document}
