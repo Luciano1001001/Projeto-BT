@@ -146,13 +146,13 @@
                
           }
          ?>	
-        
+        <!-- Aqui eu veno o que foi alterado no meu código e posso escolher se salvo ou não -->
         </main>
         
         <footer class="brfooter">
           <p class="text-center"> Copyright © Next Step 2016. Todos os direitos reservados. </p>
         </footer>
-        
+        <!-- Eu posso ter adicionado mais linhas ou apagado e tudo aparece aqui-->
 		<script src="js/jquery.js"></script> 
         <script src="js/bootstrap.js"></script>
         <script src="js/menu.js"></script>
