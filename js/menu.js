@@ -71,6 +71,13 @@ $(document).ready(function(e) {
 });
 
 $(document).ready(function(e) {
+	$('#boletos-home').click(function(e) {
+        e.preventDefault();
+        window.open('modules/boleto/boleto_bancoob_a4.php');
+    });
+});
+
+$(document).ready(function(e) {
 	$('#getout').click(function(e) {
 		e.preventDefault();
 		$.ajax({
