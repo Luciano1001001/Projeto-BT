@@ -25,8 +25,9 @@
 */
 namespace CnabPHP\samples;
 use \CnabPHP\Retorno;
-include("../../autoloader.php");
-$fileContent = file_get_contents("retorno_cnab400_itau.ret");
+require_once ("../../vendor/autoload.php");
+
+$fileContent = file_get_contents("retorno_cnab240_caixa.ret");
 
 $arquivo = new Retorno($fileContent);
 

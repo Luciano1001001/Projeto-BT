@@ -150,7 +150,7 @@ $dadosboleto["nosso_numero"] = $NossoNumero . $Dv;
 
 
 
-$dadosboleto["numero_documento"] = "12";	// Inserir numero do contrato Num do pedido ou do documento
+$dadosboleto["numero_documento"] = "IT-2020";	// Inserir numero do contrato Num do pedido ou do documento
 $dadosboleto["data_vencimento"] = $data_venc; // Data de Vencimento do Boleto - REGRA: Formato DD/MM/AAAA
 $dadosboleto["data_documento"] = date("d/m/Y"); // Data de emissão do Boleto
 $dadosboleto["data_processamento"] = date("d/m/Y"); // Data de processamento do boleto (opcional)
@@ -173,8 +173,8 @@ $dadosboleto["instrucoes3"] = "- Em caso de dúvidas entre em contato conosco: x
 $dadosboleto["instrucoes4"] = "&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br";
 
 // DADOS OPCIONAIS DE ACORDO COM O BANCO OU CLIENTE
-$dadosboleto["quantidade"] = "10";
-$dadosboleto["valor_unitario"] = "10";
+//$dadosboleto["quantidade"] = "";
+//$dadosboleto["valor_unitario"] = "";
 $dadosboleto["aceite"] = "N";		
 $dadosboleto["especie"] = "R$";
 $dadosboleto["especie_doc"] = "DM";
@@ -183,7 +183,7 @@ $dadosboleto["especie_doc"] = "DM";
 // ---------------------- DADOS FIXOS DE CONFIGURAÇÃO DO SEU BOLETO --------------- //
 // DADOS ESPECIFICOS DO SICOOB
 $dadosboleto["modalidade_cobranca"] = "01";
-$dadosboleto["numero_parcela"] = "901";
+$dadosboleto["numero_parcela"] = "03";
 
 
 // DADOS DA SUA CONTA - BANCO SICOOB
