@@ -18,5 +18,11 @@
 		"source" : "https://github.com/marlonparanhos/Projeto-BT.git",
 		"issues" : "https://github.com/marlonparanhos/Projeto-BT/issues",
 		"email" : "contato@nxstep.com.br"
-	}
+	},
+	"repositories": [ 
+        { 
+            "url": "https://github.com/nxstep-si/nx-boletos", 
+            "type": "vcs" 
+        } 
+    ] 
 }
