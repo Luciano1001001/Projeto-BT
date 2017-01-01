@@ -5,11 +5,9 @@ use GiordanoLima\BoletosPHP\Boletos;
 $boleto = new Boletos(Boletos::BOLETOSPHP_BANCOOB);
 //var_dump($boleto);
 $boleto->setData([
-    "valor_boleto" => "99,00",
-    "data_vencimento" => "01/04/2016",
-    "nosso_numero" => "23",//passar o índice do boleto
-    "valor_boleto" => "25,00",
-	"data_vencimento" => "01/02/2017",
+	"valor_boleto" => "25,00",
+	"data_vencimento" => "02/01/2017",
+	"nosso_numero" => "23",//passar o índice do boleto
 	"agencia" => "3046",
 	"conta" => "25368",
 	"conta_dv" => "5",
@@ -48,10 +46,10 @@ $boleto->setImageBasePath("imagens/");
 echo $boleto->render();
 var_dump($boleto);
 $dadosboleto = $boleto->getDadosBoleto();
-echo $dadosboleto['sacado'];
+echo $dadosboleto['sacado']."<br />";
 
 foreach ($dadosboleto as $i => $value) {
-	echo($dadosboleto[$i]);
+	echo($dadosboleto[$i]."<br />");
 }
 
 ?>
