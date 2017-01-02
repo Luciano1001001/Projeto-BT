@@ -1,22 +1,49 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : Marlon
-Source Server Version : 100113
+Source Server         : localhost
+Source Server Version : 50505
 Source Host           : localhost:3306
 Source Database       : projeto_brasiltur
 
 Target Server Type    : MYSQL
-Target Server Version : 100113
+Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2016-12-16 01:08:46
+Date: 2016-12-18 13:26:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for cliente
+-- Table structure for `boleto`
+-- ----------------------------
+DROP TABLE IF EXISTS `boleto`;
+CREATE TABLE `boleto` (
+  `id_boleto` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pagamento_boleto` int(11) NOT NULL,
+  `id_cliente_pagador_boleto` int(11) NOT NULL,
+  `id_cliente_avalista_boleto` int(11) NOT NULL,
+  `dt_processamento_boleto` date NOT NULL,
+  `dias_pagamento_boleto` tinyint(3) NOT NULL,
+  `especie_doc_boleto` varchar(2) NOT NULL,
+  `nosso_numero_boleto` int(20) unsigned zerofill NOT NULL,
+  `valor_liquido_boleto` decimal(10,0) NOT NULL,
+  PRIMARY KEY (`id_boleto`),
+  KEY `fk_cliente_pag_boleto` (`id_cliente_pagador_boleto`),
+  KEY `fk_cliente_aval_boleto` (`id_cliente_avalista_boleto`),
+  KEY `kf_pagamento_boleto` (`id_pagamento_boleto`),
+  CONSTRAINT `fk_cliente_aval_boleto` FOREIGN KEY (`id_cliente_avalista_boleto`) REFERENCES `cliente` (`id_cliente`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_cliente_pag_boleto` FOREIGN KEY (`id_cliente_pagador_boleto`) REFERENCES `cliente` (`id_cliente`) ON UPDATE CASCADE,
+  CONSTRAINT `kf_pagamento_boleto` FOREIGN KEY (`id_pagamento_boleto`) REFERENCES `pagamento` (`id_pagamento`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of boleto
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `cliente`
 -- ----------------------------
 DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE `cliente` (
@@ -45,7 +72,71 @@ INSERT INTO `cliente` VALUES ('4', 'Mark Tremonti', '341.348.434.82', '48451541'
 INSERT INTO `cliente` VALUES ('5', 'Corey Taylor', '483.483.412.84', '235898235', '1974-03-07', 'Av. Augusto de Lima, 583, Ap. 201', 'Belo Horizonte', 'MG', '79929-754', 'stonesour@gmail.com', '(31) 5666-8524', '(31) 9-8847-5656', '2016-12-16');
 
 -- ----------------------------
--- Table structure for produto
+-- Table structure for `contrato`
+-- ----------------------------
+DROP TABLE IF EXISTS `contrato`;
+CREATE TABLE `contrato` (
+  `id_contrato` int(11) NOT NULL AUTO_INCREMENT,
+  `id_contratante` int(11) NOT NULL COMMENT 'fk id_cliente',
+  `dt_contrato` date NOT NULL,
+  `valor_contrato` decimal(10,2) NOT NULL,
+  `pacote_contrato` int(11) NOT NULL,
+  `numero_contrato` int(15) NOT NULL,
+  PRIMARY KEY (`id_contrato`),
+  KEY `fk_id_cliente` (`id_contratante`),
+  KEY `fk_pacote_contrato` (`pacote_contrato`),
+  CONSTRAINT `fk_id_cliente` FOREIGN KEY (`id_contratante`) REFERENCES `cliente` (`id_cliente`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_pacote_contrato` FOREIGN KEY (`pacote_contrato`) REFERENCES `produto_pacotes` (`id_produto_pacotes`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of contrato
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `pagamento`
+-- ----------------------------
+DROP TABLE IF EXISTS `pagamento`;
+CREATE TABLE `pagamento` (
+  `id_pagamento` int(11) NOT NULL AUTO_INCREMENT,
+  `forma_pagamento` enum('Dinheiro','Boleto','Cartão','Cheque') NOT NULL DEFAULT 'Boleto',
+  `condicao_pagamento` enum('À Vista','Parcelado Cartão','Parcelado Cheque','Parcelado Boleto') NOT NULL,
+  `dt_inicio_pagamento` date NOT NULL,
+  `quant_parcelas_pagamento` tinyint(2) NOT NULL,
+  `valor_liquido_pagamento` decimal(10,0) NOT NULL,
+  `valor_taxas_pagamento` decimal(10,0) NOT NULL,
+  `valor_total_pagamento` decimal(10,0) NOT NULL,
+  `id_contrato` int(11) NOT NULL,
+  PRIMARY KEY (`id_pagamento`),
+  KEY `fk_pagamento_contrato` (`id_contrato`),
+  CONSTRAINT `fk_pagamento_contrato` FOREIGN KEY (`id_contrato`) REFERENCES `contrato` (`id_contrato`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of pagamento
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `passageiro`
+-- ----------------------------
+DROP TABLE IF EXISTS `passageiro`;
+CREATE TABLE `passageiro` (
+  `id_passageiro` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(11) NOT NULL,
+  `id_contrato` int(11) NOT NULL,
+  `menor_passageiro` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id_passageiro`),
+  KEY `fk_passageiro_contrato` (`id_contrato`),
+  CONSTRAINT `fk_cliente_passageiro` FOREIGN KEY (`id_passageiro`) REFERENCES `cliente` (`id_cliente`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_passageiro_contrato` FOREIGN KEY (`id_contrato`) REFERENCES `contrato` (`id_contrato`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of passageiro
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `produto`
 -- ----------------------------
 DROP TABLE IF EXISTS `produto`;
 CREATE TABLE `produto` (
@@ -67,7 +158,7 @@ INSERT INTO `produto` VALUES ('61', 'Reveillon Porto Seguro', 'Dividimos em até
 INSERT INTO `produto` VALUES ('62', 'Caldas Novas', 'Dividimos em até 7x no cartão ou em até 5x no boleto ou cheque.', '12/01/2017 à 20/01/2017', 'Em ônibus leito da empresa Pássaro Verde.', 'Hotel Diamond Palace , sendo 6 dias e 5 noites, o hotel possui uma área de Lazer com 02 piscinas, sala de ginástica, segurança 24hs. São apartamentos com equipados com ar-condicionado e TV à cabo.', 'Café da manhã e almoço inclusos.', '- Equipe de Monitores da BrasilTur acompanhando o grupo em todas as atividades.\n- Ônibus exclusivo durante os passeios.\n- Seguro-Viagem com: Assistência médica, odontológica e farmacêutica.\n- Kit primeiros socorros.\n- Carros de apoio 24h com assistência permanente ao grupo.');
 
 -- ----------------------------
--- Table structure for produto_controle
+-- Table structure for `produto_controle`
 -- ----------------------------
 DROP TABLE IF EXISTS `produto_controle`;
 CREATE TABLE `produto_controle` (
@@ -86,7 +177,7 @@ INSERT INTO `produto_controle` VALUES ('2', '61', '0');
 INSERT INTO `produto_controle` VALUES ('3', '62', '0');
 
 -- ----------------------------
--- Table structure for produto_observacoes
+-- Table structure for `produto_observacoes`
 -- ----------------------------
 DROP TABLE IF EXISTS `produto_observacoes`;
 CREATE TABLE `produto_observacoes` (
@@ -105,7 +196,7 @@ INSERT INTO `produto_observacoes` VALUES ('1', 'Cada cliente poderá optar pelo 
 INSERT INTO `produto_observacoes` VALUES ('2', 'Cada cliente poderá optar pelo pagamento desejado, podendo ser parte no cartão, parte no boleto e parte no cheque.', '62');
 
 -- ----------------------------
--- Table structure for produto_pacotes
+-- Table structure for `produto_pacotes`
 -- ----------------------------
 DROP TABLE IF EXISTS `produto_pacotes`;
 CREATE TABLE `produto_pacotes` (
@@ -128,7 +219,7 @@ INSERT INTO `produto_pacotes` VALUES ('3', 'City Tour', '250,00', 'Tour por Cald
 INSERT INTO `produto_pacotes` VALUES ('4', 'Parque de Águas Termais', '350,00', 'Passeio até ao maior parque aquático de Caldas Novas.', '62');
 
 -- ----------------------------
--- Table structure for produto_valores
+-- Table structure for `produto_valores`
 -- ----------------------------
 DROP TABLE IF EXISTS `produto_valores`;
 CREATE TABLE `produto_valores` (
@@ -152,7 +243,7 @@ INSERT INTO `produto_valores` VALUES ('3', '1090,00', 'Solteiro', 'por pessoa', 
 INSERT INTO `produto_valores` VALUES ('4', '1200,00', 'Casal', 'por pessoa', 'Cartão ou Boleto', '62');
 
 -- ----------------------------
--- Table structure for usuario
+-- Table structure for `usuario`
 -- ----------------------------
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
@@ -169,5 +260,5 @@ CREATE TABLE `usuario` (
 -- ----------------------------
 -- Records of usuario
 -- ----------------------------
-INSERT INTO `usuario` VALUES ('1', 'admin', 'admin@admin.com', 'admin', '1', '1', 'admin');
+INSERT INTO `usuario` VALUES ('1', 'admin', 'admin', 'admin', '1', '1', 'admin');
 INSERT INTO `usuario` VALUES ('2', 'Marlon Paranhos', 'marlonparanhos@gmail.com', 'marlon', '(38) 3526-1159', '(38) 9-8838-1402', 'user');
