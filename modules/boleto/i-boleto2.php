@@ -25,7 +25,7 @@ $boleto->setData([
 	"demonstrativo1" => "",
 	"demonstrativo2" => "",
 	"demonstrativo3" => "",
-	"instrucoes1" => "COBRAR MORA/DIAR$ 3,30 APOS O VENCIMENTOPAULO (38) 9893-2164 /  (38) 8815-2940",
+	"instrucoes1" => "COBRAR MORA/DIA R$ 3,30 APOS O VENCIMENTOPAULO (38) 9893-2164 /  (38) 8815-2940",
 	"instrucoes2" => "REIMPRESSÃO DO BOLETO                  WWW.SICOO.COM.BR",
 	"instrucoes3" => "",
 	"instrucoes4" => "",
@@ -40,7 +40,7 @@ $boleto->setData([
 	"numero_parcela" => "03",
     "total_parcelas" => "03",
 	"modalidade_cobranca" => "01"
-	
+
 ]);
 $boleto->setImageBasePath("imagens/");
 echo $boleto->render();
