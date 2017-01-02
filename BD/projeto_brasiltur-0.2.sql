@@ -260,5 +260,5 @@ CREATE TABLE `usuario` (
 -- ----------------------------
 -- Records of usuario
 -- ----------------------------
-INSERT INTO `usuario` VALUES ('1', 'admin', 'admin', 'admin', '1', '1', 'admin');
-INSERT INTO `usuario` VALUES ('2', 'Marlon Paranhos', 'marlonparanhos@gmail.com', 'marlon', '(38) 3526-1159', '(38) 9-8838-1402', 'user');
+INSERT INTO `usuario` VALUES ('1', 'admin', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', '1', '1', 'admin');
+INSERT INTO `usuario` VALUES ('2', 'Marlon Paranhos', 'marlonparanhos@gmail.com', 'e2981b460eaa64b3d68b426a8250dc77dec79fe2', '(38) 3526-1159', '(38) 9-8838-1402', 'user');
