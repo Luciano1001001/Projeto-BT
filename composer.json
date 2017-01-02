@@ -4,7 +4,6 @@
 	"type" : "project",
 	"require" : {
 		"rctnet/opencnabphp" : "dev-master",
-		"cobregratis/boletophp" : "dev-master",
 		"nxstep-si/nx-boletos" : "dev-master"
 	},
 	"license" : "MIT License",
@@ -19,10 +18,9 @@
 		"issues" : "https://github.com/marlonparanhos/Projeto-BT/issues",
 		"email" : "contato@nxstep.com.br"
 	},
-	"repositories": [ 
-        { 
-            "url": "https://github.com/nxstep-si/nx-boletos", 
-            "type": "vcs" 
-        } 
-    ] 
+	"repositories" : [{
+			"url" : "https://github.com/nxstep-si/nx-boletos",
+			"type" : "vcs"
+		}
+	]
 }
