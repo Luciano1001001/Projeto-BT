@@ -12,6 +12,10 @@
 	require_once "classes/produto_valores.php";
 	require_once "classes/produto_controle.php";
 	require_once "classes/produto_observacoes.php";
+	require_once "classes/boleto.php";
+	require_once "classes/contrato.php";
+	require_once "classes/pagamento.php";
+	require_once "classes/passageiro.php";
 	
 	function ExibeData($data){
 		$dataCerta = explode('-', $data);
