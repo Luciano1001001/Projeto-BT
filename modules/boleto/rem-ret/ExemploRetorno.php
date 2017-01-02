@@ -25,7 +25,7 @@
 */
 namespace CnabPHP\samples;
 use \CnabPHP\Retorno;
-require_once ("../../vendor/autoload.php");
+require_once ("../../../vendor/autoload.php");
 
 $fileContent = file_get_contents("retorno_cnab240_caixa.ret");
 
