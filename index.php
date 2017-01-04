@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     </head>
     <body>
-    	<nav class="navbar navbar-inverse navbar-fixed-top ">
+    	<nav class="navbrtur container-fluid navbar navbar-fixed-top ">
         	<div class="container-fluid"> 
             	<!-- Brand and toggle get grouped for better mobile display -->
 	        	<div class="navbar-header">

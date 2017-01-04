@@ -8,14 +8,27 @@ body{
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
-	margin-top:3.5em;
-	min-height:562px;
+	margin-top:7.5em;
+	/*min-height: 862px;*/
 }
 
 .brfooter{
+	position: fixed;
+	bottom:0;
+	width:100%;
 	padding:1.5em;
-	background: #222;
-	color:#E9E9E9;
+	box-shadow: 0px 0px 1em #30122F;
+	-webkit-box-shadow: 0px 0px 1em #30122F;
+	-moz-box-shadow: 0px 0px 1em #30122F;
+}
+
+.navbrtur{
+	position:absolute;
+	up:0;
+	padding:1.5em;
+	box-shadow: 0px 0px 1em #30122F;
+	-webkit-box-shadow: 0px 0px 1em #30122F;
+	-moz-box-shadow: 0px 0px 1em #30122F;
 }
 
 .DetalhesItem .EditarItem, .ExcluirItem{
