@@ -6,16 +6,20 @@ body{
 #loader{
 	background-image: url(../img/Untitled-1.png);
 	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-	margin-top:3.5em;
+	background-size: 100% auto;
+	background-attachment: inherit;
+	background-position: center;
+	margin-top: 1.5em;
+	margin-bottom: 7em;
 	min-height:562px;
 }
 
-.brfooter{
+.brtbars{
 	padding:1.5em;
-	background: #222;
-	color:#E9E9E9;
+}
+
+.brtfooter{
+	text-align: center;
 }
 
 .DetalhesItem .EditarItem, .ExcluirItem{

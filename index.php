@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     </head>
     <body>
-    	<nav class="navbar navbar-inverse navbar-fixed-top ">
+    	<nav class="brtbars navbar navbar-default">
         	<div class="container-fluid"> 
             	<!-- Brand and toggle get grouped for better mobile display -->
 	        	<div class="navbar-header">
@@ -32,7 +32,7 @@
             			<span class="icon-bar"></span>
           			</button>
 					<!-- <a class="navbar-brand" href="#" id="">Sistema de Treinamento NS</a> -->
-                     <a class="navbar-brand" href="?" id=""><img src="img/brtur.png" class="img-responsive img-logo" width="150"> </a>
+                     <a class="navbar-brand" href="?" id=""><img src="img/brtur_gray.png" class="img-responsive img-logo" width="150"> </a>
                	</div>
             
             	<!-- Collect the nav links, forms, and other content for toggling -->
@@ -149,8 +149,10 @@
         <!-- Aqui eu veno o que foi alterado no meu código e posso escolher se salvo ou não -->
         </main>
         
-        <footer class="brfooter">
-          <p class="text-center"> Copyright © Next Step 2016. Todos os direitos reservados. </p>
+        <footer class="brtfooter brtbars navbar navbar-default navbar-fixed-bottom">
+        	<div class="container">
+        		<p class="text-center navbar-text"> Copyright © <a href="http://nxstep.com.br/" target="_blank" >Next Step</a> 2016. Todos os direitos reservados. </p>
+        	</div>
         </footer>
         <!-- Eu posso ter adicionado mais linhas ou apagado e tudo aparece aqui-->
 		<script src="js/jquery.js"></script> 
