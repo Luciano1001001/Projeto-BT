@@ -3,7 +3,7 @@
 	"description" : "Sistema Web para a BrasilTur",
 	"type" : "project",
 	"require" : {
-		"rctnet/opencnabphp" : "dev-master",
+		"nxstep-si/nx-cnab" : "dev-master",
 		"nxstep-si/nx-boletos" : "dev-master"
 	},
 	"license" : "MIT License",
@@ -20,6 +20,10 @@
 	},
 	"repositories" : [{
 			"url" : "https://github.com/nxstep-si/nx-boletos",
+			"type" : "vcs"
+		},
+		{
+			"url" : "https://github.com/nxstep-si/nx-cnab",
 			"type" : "vcs"
 		}
 	]
