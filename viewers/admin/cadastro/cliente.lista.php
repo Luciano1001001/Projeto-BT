@@ -76,7 +76,6 @@
 ?>
 
 
-<br>
 <ol class="breadcrumb">
   <li><a href="#" id="bread_home">Home</a></li>
   <li><a href="#" id="bread_cadastro">Cadastro</a></li>

@@ -113,14 +113,12 @@
 ?>
 <link href="../../../css/bootstrap.css" rel="stylesheet" type="text/css">
 
-
-<br>
-<ol class="breadcrumb">
+<ul class="breadcrumb">
   <li><a href="#" id="bread_home">Home</a></li>
   <li><a href="#" id="bread_cadastro">Cadastro</a></li>
   <li><a href="#" id="bread_cliente">Cliente</a></li>
   <li class="active">Adicionar de Dados</li>
-</ol>
+</ul>
 
 <h1>
 	Cadastro de Cliente

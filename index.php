@@ -31,8 +31,7 @@
             			<span class="icon-bar"></span>
             			<span class="icon-bar"></span>
           			</button>
-					<!-- <a class="navbar-brand" href="#" id="">Sistema de Treinamento NS</a> -->
-                     <a class="navbar-brand" href="?" id=""><img src="img/brtur_gray.png" class="img-responsive img-logo" width="150"> </a>
+                    <a class="navbar-brand" href="?" id=""><img src="img/brtur_gray.png" class="img-responsive img-logo" width="150"> </a>
                	</div>
             
             	<!-- Collect the nav links, forms, and other content for toggling -->
@@ -44,7 +43,7 @@
                 
                    if ($user === "admin") {
                  ?>
-                    <li><a class="" id="">Bem Vindo <?php echo $_SESSION['name_user'];?> </a></li>               
+                    <li><a class="" id="">Logado como: <?php echo $_SESSION['name_user'];?> </a></li>               
                     <li><a href="?" id=""><i class="fa fa-home" aria-hidden="true"></i> HOME </a></li>
                     
                     <li class="dropdown">
@@ -68,7 +67,7 @@
                  } else {
                      ?>
                      
-                     <li><a class="" id="">Bem Vindo <?php echo $_SESSION['name_user'];?> </a></li>
+                     <li><a class="" id="">Logado como: <?php echo $_SESSION['name_user'];?> </a></li>
 					 <li><a href="?" id="">HOME </a></li>
 					 
 					 <?php
