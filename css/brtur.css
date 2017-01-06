@@ -1,14 +1,15 @@
 
 body{
 	font-family: roboto medium, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-image: url(../img/World-Map_claro.png);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
 }
 
 #loader{
-	background-image: url(../img/Untitled-1.png);
-	background-repeat: no-repeat;
-	background-size: 100% auto;
-	background-attachment: inherit;
-	background-position: center;
+
 	margin-top: 1.5em;
 	margin-bottom: 7em;
 	min-height:562px;
