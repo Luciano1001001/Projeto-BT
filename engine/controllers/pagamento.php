@@ -10,9 +10,9 @@
 	$condicao_pagamento = $_POST['condicao_pagamento'];
 	$dt_inicio_pagamento = $_POST['dt_inicio_pagamento'];
 	$quant_parcelas_pagamento = $_POST['quant_parcelas_pagamento'];
-	$valor_liquido_pagamento = $_POST['valor_liquido_pagamento'];
+	$valor_bruto_pagamento = $_POST['valor_bruto_pagamento'];
 	$valor_taxas_pagamento = $_POST['valor_taxas_pagamento'];
-	$valor_total_pagamento = $_POST['valor_total_pagamento'];
+	$valor_liquido_pagamento = $_POST['valor_liquido_pagamento'];
 	$id_contrato = $_POST['id_contrato'];
 	
 	
@@ -21,7 +21,7 @@
 	
 	//parte3
 	$Item = new Pagamento();
-	$Item->SetValues($id_pagamento, $forma_pagamento, $condicao_pagamento, $dt_inicio_pagamento, $quant_parcelas_pagamento, $valor_liquido_pagamento, $valor_taxas_pagamento, $valor_total_pagamento, $id_contrato); 
+	$Item->SetValues($id_pagamento, $forma_pagamento, $condicao_pagamento, $dt_inicio_pagamento, $quant_parcelas_pagamento, $valor_bruto_pagamento, $valor_taxas_pagamento, $valor_liquido_pagamento, $id_contrato); 
 	
 	
 		

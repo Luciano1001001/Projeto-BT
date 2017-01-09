@@ -5,22 +5,22 @@
 
 	//parte1
 	
-	$id_contrato = $_POST['id_contrato'];
-	$id_contratante = $_POST['id_contratante'];
-	$id_avalista = $_POST['id_avalista'];
-	$id_empresa = $_POST['id_empresa'];
-	$dt_contrato = $_POST['dt_contrato'];
-	$valor_contrato = $_POST['valor_contrato'];
-	$pacote_contrato = $_POST['pacote_contrato'];
-	$numero_contrato = $_POST['numero_contrato'];
+	$id_taxa = $_POST['id_taxa'];
+	$id_pagamento = $_POST['id_pagamento'];
+	$natureza_taxa = $_POST['natureza_taxa'];
+	$cod_taxa = $_POST['cod_taxa'];
+	$dt_aplica_taxa = $_POST['dt_aplica_taxa'];
+	$multiplicador_taxa = $_POST['multiplicador_taxa'];
+	$valor_taxa = $_POST['valor_taxa'];
+	$descricao_taxa = $_POST['descricao_taxa'];
 	
 	
 	//parte2
 	$action = $_POST['action'];
 	
 	//parte3
-	$Item = new Contrato();
-	$Item->SetValues($id_contrato, $id_contratante, $id_avalista, $id_empresa, $dt_contrato, $valor_contrato, $pacote_contrato, $numero_contrato); 
+	$Item = new Taxa();
+	$Item->SetValues($id_taxa, $id_pagamento, $natureza_taxa, $cod_taxa, $dt_aplica_taxa, $multiplicador_taxa, $valor_taxa, $descricao_taxa); 
 	
 	
 		
