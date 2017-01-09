@@ -7,13 +7,23 @@
 	
 	$id_boleto = $_POST['id_boleto'];
 	$id_pagamento_boleto = $_POST['id_pagamento_boleto'];
-	$id_cliente_pagador_boleto = $_POST['id_cliente_pagador_boleto'];
-	$id_cliente_avalista_boleto = $_POST['id_cliente_avalista_boleto'];
-	$dt_processamento_boleto = $_POST['dt_processamento_boleto'];
-	$dias_pagamento_boleto = $_POST['dias_pagamento_boleto'];
-	$especie_doc_boleto = $_POST['especie_doc_boleto'];
 	$nosso_numero_boleto = $_POST['nosso_numero_boleto'];
-	$valor_liquido_boleto = $_POST['valor_liquido_boleto'];
+	$nosso_numero_cnab_boleto = $_POST['nosso_numero_cnab_boleto'];
+	$dt_emissao_boleto = $_POST['dt_emissao_boleto'];
+	$dt_vencimento_boleto = $_POST['dt_vencimento_boleto'];
+	$valor_boleto = $_POST['valor_boleto'];
+	$especie_boleto = $_POST['especie_boleto'];
+	$aceite_boleto = $_POST['aceite_boleto'];
+	$cod_protesto_boleto = $_POST['cod_protesto_boleto'];
+	$prazo_protesto_boleto = $_POST['prazo_protesto_boleto'];
+	$num_parcela_boleto = $_POST['num_parcela_boleto'];
+	$cod_moeda_boleto = $_POST['cod_moeda_boleto'];
+	$informacao_boleto_3 = $_POST['informacao_boleto_3'];
+	$informacao_boleto_4 = $_POST['informacao_boleto_4'];
+	$informacao_boleto_5 = $_POST['informacao_boleto_5'];
+	$informacao_boleto_6 = $_POST['informacao_boleto_6'];
+	$informacao_boleto_7 = $_POST['informacao_boleto_7'];
+	$id_lote = $_POST['id_lote'];
 	
 	
 	//parte2
@@ -21,7 +31,7 @@
 	
 	//parte3
 	$Item = new Boleto();
-	$Item->SetValues($id_boleto, $id_pagamento_boleto, $id_cliente_pagador_boleto, $id_cliente_avalista_boleto, $dt_processamento_boleto, $dias_pagamento_boleto, $especie_doc_boleto, $nosso_numero_boleto, $valor_liquido_boleto); 
+	$Item->SetValues($id_boleto, $id_pagamento_boleto, $nosso_numero_boleto, $nosso_numero_cnab_boleto, $dt_emissao_boleto, $dt_vencimento_boleto, $valor_boleto, $especie_boleto, $aceite_boleto, $cod_protesto_boleto, $prazo_protesto_boleto, $num_parcela_boleto, $cod_moeda_boleto, $informacao_boleto_3, $informacao_boleto_4, $informacao_boleto_5, $informacao_boleto_6, $informacao_boleto_7, $id_lote); 
 	
 	
 		

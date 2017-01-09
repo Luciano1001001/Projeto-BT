@@ -7,28 +7,48 @@
 		//Nome das variaveis devem ser de acordo com as colunas da tabela respectiva no bd
 		private $id_boleto;
 		private $id_pagamento_boleto;
-		private $id_cliente_pagador_boleto;
-		private $id_cliente_avalista_boleto;
-		private $dt_processamento_boleto;
-		private $dias_pagamento_boleto;
-		private $especie_doc_boleto;
 		private $nosso_numero_boleto;
-		private $valor_liquido_boleto;
+		private $nosso_numero_cnab_boleto;
+		private $dt_emissao_boleto;
+		private $dt_vencimento_boleto;
+		private $valor_boleto;
+		private $especie_boleto;
+		private $aceite_boleto;
+		private $cod_protesto_boleto;
+		private $prazo_protesto_boleto;
+		private $num_parcela_boleto;
+		private $cod_moeda_boleto;
+		private $informacao_boleto_3;
+		private $informacao_boleto_4;
+		private $informacao_boleto_5;
+		private $informacao_boleto_6;
+		private $informacao_boleto_7;
+		private $id_lote;
 				
 
 		//setters
 		
 		//Funcao que seta uma instancia da classe
-		public function SetValues($id_boleto, $id_pagamento_boleto, $id_cliente_pagador_boleto, $id_cliente_avalista_boleto, $dt_processamento_boleto, $dias_pagamento_boleto, $especie_doc_boleto, $nosso_numero_boleto, $valor_liquido_boleto) { 
+		public function SetValues($id_boleto, $id_pagamento_boleto, $nosso_numero_boleto, $nosso_numero_cnab_boleto, $dt_emissao_boleto, $dt_vencimento_boleto, $valor_boleto, $especie_boleto, $aceite_boleto, $cod_protesto_boleto, $prazo_protesto_boleto, $num_parcela_boleto, $cod_moeda_boleto, $informacao_boleto_3, $informacao_boleto_4, $informacao_boleto_5, $informacao_boleto_6, $informacao_boleto_7, $id_lote) { 
 			$this->id_boleto = $id_boleto;
 			$this->id_pagamento_boleto = $id_pagamento_boleto;
-			$this->id_cliente_pagador_boleto = $id_cliente_pagador_boleto;
-			$this->id_cliente_avalista_boleto = $id_cliente_avalista_boleto;
-			$this->dt_processamento_boleto = $dt_processamento_boleto;
-			$this->dias_pagamento_boleto = $dias_pagamento_boleto;
-			$this->especie_doc_boleto = $especie_doc_boleto;
 			$this->nosso_numero_boleto = $nosso_numero_boleto;
-			$this->valor_liquido_boleto = $valor_liquido_boleto;
+			$this->nosso_numero_cnab_boleto = $nosso_numero_cnab_boleto;
+			$this->dt_emissao_boleto = $dt_emissao_boleto;
+			$this->dt_vencimento_boleto = $dt_vencimento_boleto;
+			$this->valor_boleto = $valor_boleto;
+			$this->especie_boleto = $especie_boleto;
+			$this->aceite_boleto = $aceite_boleto;
+			$this->cod_protesto_boleto = $cod_protesto_boleto;
+			$this->prazo_protesto_boleto = $prazo_protesto_boleto;
+			$this->num_parcela_boleto = $num_parcela_boleto;
+			$this->cod_moeda_boleto = $cod_moeda_boleto;
+			$this->informacao_boleto_3 = $informacao_boleto_3;
+			$this->informacao_boleto_4 = $informacao_boleto_4;
+			$this->informacao_boleto_5 = $informacao_boleto_5;
+			$this->informacao_boleto_6 = $informacao_boleto_6;
+			$this->informacao_boleto_7 = $informacao_boleto_7;
+			$this->id_lote = $id_lote;
 						
 		}
 		
@@ -43,25 +63,45 @@
 						  (
 				 			id_boleto,
 				 			id_pagamento_boleto,
-				 			id_cliente_pagador_boleto,
-				 			id_cliente_avalista_boleto,
-				 			dt_processamento_boleto,
-				 			dias_pagamento_boleto,
-				 			especie_doc_boleto,
 				 			nosso_numero_boleto,
-				 			valor_liquido_boleto
+				 			nosso_numero_cnab_boleto,
+				 			dt_emissao_boleto,
+				 			dt_vencimento_boleto,
+				 			valor_boleto,
+				 			especie_boleto,
+				 			aceite_boleto,
+				 			cod_protesto_boleto,
+				 			prazo_protesto_boleto,
+				 			num_parcela_boleto,
+				 			cod_moeda_boleto,
+				 			informacao_boleto_3,
+				 			informacao_boleto_4,
+				 			informacao_boleto_5,
+				 			informacao_boleto_6,
+				 			informacao_boleto_7,
+				 			id_lote
 						  )  
 				VALUES 
 					(
 				 			'$this->id_boleto',
 				 			'$this->id_pagamento_boleto',
-				 			'$this->id_cliente_pagador_boleto',
-				 			'$this->id_cliente_avalista_boleto',
-				 			'$this->dt_processamento_boleto',
-				 			'$this->dias_pagamento_boleto',
-				 			'$this->especie_doc_boleto',
 				 			'$this->nosso_numero_boleto',
-				 			'$this->valor_liquido_boleto'
+				 			'$this->nosso_numero_cnab_boleto',
+				 			'$this->dt_emissao_boleto',
+				 			'$this->dt_vencimento_boleto',
+				 			'$this->valor_boleto',
+				 			'$this->especie_boleto',
+				 			'$this->aceite_boleto',
+				 			'$this->cod_protesto_boleto',
+				 			'$this->prazo_protesto_boleto',
+				 			'$this->num_parcela_boleto',
+				 			'$this->cod_moeda_boleto',
+				 			'$this->informacao_boleto_3',
+				 			'$this->informacao_boleto_4',
+				 			'$this->informacao_boleto_5',
+				 			'$this->informacao_boleto_6',
+				 			'$this->informacao_boleto_7',
+				 			'$this->id_lote'
 					);
 			";
 			
@@ -78,13 +118,23 @@
 				SELECT
 					 t1.id_boleto,
 					 t1.id_pagamento_boleto,
-					 t1.id_cliente_pagador_boleto,
-					 t1.id_cliente_avalista_boleto,
-					 t1.dt_processamento_boleto,
-					 t1.dias_pagamento_boleto,
-					 t1.especie_doc_boleto,
 					 t1.nosso_numero_boleto,
-					 t1.valor_liquido_boleto
+					 t1.nosso_numero_cnab_boleto,
+					 t1.dt_emissao_boleto,
+					 t1.dt_vencimento_boleto,
+					 t1.valor_boleto,
+					 t1.especie_boleto,
+					 t1.aceite_boleto,
+					 t1.cod_protesto_boleto,
+					 t1.prazo_protesto_boleto,
+					 t1.num_parcela_boleto,
+					 t1.cod_moeda_boleto,
+					 t1.informacao_boleto_3,
+					 t1.informacao_boleto_4,
+					 t1.informacao_boleto_5,
+					 t1.informacao_boleto_6,
+					 t1.informacao_boleto_7,
+					 t1.id_lote
 				FROM
 					boleto AS t1
 				WHERE
@@ -108,13 +158,23 @@
 				SELECT
 					 t1.id_boleto,
 					 t1.id_pagamento_boleto,
-					 t1.id_cliente_pagador_boleto,
-					 t1.id_cliente_avalista_boleto,
-					 t1.dt_processamento_boleto,
-					 t1.dias_pagamento_boleto,
-					 t1.especie_doc_boleto,
 					 t1.nosso_numero_boleto,
-					 t1.valor_liquido_boleto
+					 t1.nosso_numero_cnab_boleto,
+					 t1.dt_emissao_boleto,
+					 t1.dt_vencimento_boleto,
+					 t1.valor_boleto,
+					 t1.especie_boleto,
+					 t1.aceite_boleto,
+					 t1.cod_protesto_boleto,
+					 t1.prazo_protesto_boleto,
+					 t1.num_parcela_boleto,
+					 t1.cod_moeda_boleto,
+					 t1.informacao_boleto_3,
+					 t1.informacao_boleto_4,
+					 t1.informacao_boleto_5,
+					 t1.informacao_boleto_6,
+					 t1.informacao_boleto_7,
+					 t1.id_lote
 				FROM
 					boleto AS t1
 				
@@ -151,13 +211,23 @@
 				SELECT
 					 t1.id_boleto,
 					 t1.id_pagamento_boleto,
-					 t1.id_cliente_pagador_boleto,
-					 t1.id_cliente_avalista_boleto,
-					 t1.dt_processamento_boleto,
-					 t1.dias_pagamento_boleto,
-					 t1.especie_doc_boleto,
 					 t1.nosso_numero_boleto,
-					 t1.valor_liquido_boleto
+					 t1.nosso_numero_cnab_boleto,
+					 t1.dt_emissao_boleto,
+					 t1.dt_vencimento_boleto,
+					 t1.valor_boleto,
+					 t1.especie_boleto,
+					 t1.aceite_boleto,
+					 t1.cod_protesto_boleto,
+					 t1.prazo_protesto_boleto,
+					 t1.num_parcela_boleto,
+					 t1.cod_moeda_boleto,
+					 t1.informacao_boleto_3,
+					 t1.informacao_boleto_4,
+					 t1.informacao_boleto_5,
+					 t1.informacao_boleto_6,
+					 t1.informacao_boleto_7,
+					 t1.id_lote
 				FROM
 					boleto AS t1
 					
@@ -180,13 +250,23 @@
 				UPDATE boleto SET
 				
 				  id_pagamento_boleto = '$this->id_pagamento_boleto',
-				  id_cliente_pagador_boleto = '$this->id_cliente_pagador_boleto',
-				  id_cliente_avalista_boleto = '$this->id_cliente_avalista_boleto',
-				  dt_processamento_boleto = '$this->dt_processamento_boleto',
-				  dias_pagamento_boleto = '$this->dias_pagamento_boleto',
-				  especie_doc_boleto = '$this->especie_doc_boleto',
 				  nosso_numero_boleto = '$this->nosso_numero_boleto',
-				  valor_liquido_boleto = '$this->valor_liquido_boleto'
+				  nosso_numero_cnab_boleto = '$this->nosso_numero_cnab_boleto',
+				  dt_emissao_boleto = '$this->dt_emissao_boleto',
+				  dt_vencimento_boleto = '$this->dt_vencimento_boleto',
+				  valor_boleto = '$this->valor_boleto',
+				  especie_boleto = '$this->especie_boleto',
+				  aceite_boleto = '$this->aceite_boleto',
+				  cod_protesto_boleto = '$this->cod_protesto_boleto',
+				  prazo_protesto_boleto = '$this->prazo_protesto_boleto',
+				  num_parcela_boleto = '$this->num_parcela_boleto',
+				  cod_moeda_boleto = '$this->cod_moeda_boleto',
+				  informacao_boleto_3 = '$this->informacao_boleto_3',
+				  informacao_boleto_4 = '$this->informacao_boleto_4',
+				  informacao_boleto_5 = '$this->informacao_boleto_5',
+				  informacao_boleto_6 = '$this->informacao_boleto_6',
+				  informacao_boleto_7 = '$this->informacao_boleto_7',
+				  id_lote = '$this->id_lote'
 				
 				WHERE id_boleto = '$this->id_boleto';
 				
@@ -236,13 +316,23 @@
 		function __construct() { 
 			$this->id_boleto;
 			$this->id_pagamento_boleto;
-			$this->id_cliente_pagador_boleto;
-			$this->id_cliente_avalista_boleto;
-			$this->dt_processamento_boleto;
-			$this->dias_pagamento_boleto;
-			$this->especie_doc_boleto;
 			$this->nosso_numero_boleto;
-			$this->valor_liquido_boleto;
+			$this->nosso_numero_cnab_boleto;
+			$this->dt_emissao_boleto;
+			$this->dt_vencimento_boleto;
+			$this->valor_boleto;
+			$this->especie_boleto;
+			$this->aceite_boleto;
+			$this->cod_protesto_boleto;
+			$this->prazo_protesto_boleto;
+			$this->num_parcela_boleto;
+			$this->cod_moeda_boleto;
+			$this->informacao_boleto_3;
+			$this->informacao_boleto_4;
+			$this->informacao_boleto_5;
+			$this->informacao_boleto_6;
+			$this->informacao_boleto_7;
+			$this->id_lote;
 			
 			
 		}
@@ -251,13 +341,23 @@
 		function __destruct() {
 			$this->id_boleto;
 			$this->id_pagamento_boleto;
-			$this->id_cliente_pagador_boleto;
-			$this->id_cliente_avalista_boleto;
-			$this->dt_processamento_boleto;
-			$this->dias_pagamento_boleto;
-			$this->especie_doc_boleto;
 			$this->nosso_numero_boleto;
-			$this->valor_liquido_boleto;
+			$this->nosso_numero_cnab_boleto;
+			$this->dt_emissao_boleto;
+			$this->dt_vencimento_boleto;
+			$this->valor_boleto;
+			$this->especie_boleto;
+			$this->aceite_boleto;
+			$this->cod_protesto_boleto;
+			$this->prazo_protesto_boleto;
+			$this->num_parcela_boleto;
+			$this->cod_moeda_boleto;
+			$this->informacao_boleto_3;
+			$this->informacao_boleto_4;
+			$this->informacao_boleto_5;
+			$this->informacao_boleto_6;
+			$this->informacao_boleto_7;
+			$this->id_lote;
 			
 			
 		}

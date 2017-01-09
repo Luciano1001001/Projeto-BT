@@ -10,24 +10,24 @@
 		private $condicao_pagamento;
 		private $dt_inicio_pagamento;
 		private $quant_parcelas_pagamento;
-		private $valor_liquido_pagamento;
+		private $valor_bruto_pagamento;
 		private $valor_taxas_pagamento;
-		private $valor_total_pagamento;
+		private $valor_liquido_pagamento;
 		private $id_contrato;
 				
 
 		//setters
 		
 		//Funcao que seta uma instancia da classe
-		public function SetValues($id_pagamento, $forma_pagamento, $condicao_pagamento, $dt_inicio_pagamento, $quant_parcelas_pagamento, $valor_liquido_pagamento, $valor_taxas_pagamento, $valor_total_pagamento, $id_contrato) { 
+		public function SetValues($id_pagamento, $forma_pagamento, $condicao_pagamento, $dt_inicio_pagamento, $quant_parcelas_pagamento, $valor_bruto_pagamento, $valor_taxas_pagamento, $valor_liquido_pagamento, $id_contrato) { 
 			$this->id_pagamento = $id_pagamento;
 			$this->forma_pagamento = $forma_pagamento;
 			$this->condicao_pagamento = $condicao_pagamento;
 			$this->dt_inicio_pagamento = $dt_inicio_pagamento;
 			$this->quant_parcelas_pagamento = $quant_parcelas_pagamento;
-			$this->valor_liquido_pagamento = $valor_liquido_pagamento;
+			$this->valor_bruto_pagamento = $valor_bruto_pagamento;
 			$this->valor_taxas_pagamento = $valor_taxas_pagamento;
-			$this->valor_total_pagamento = $valor_total_pagamento;
+			$this->valor_liquido_pagamento = $valor_liquido_pagamento;
 			$this->id_contrato = $id_contrato;
 						
 		}
@@ -46,9 +46,9 @@
 				 			condicao_pagamento,
 				 			dt_inicio_pagamento,
 				 			quant_parcelas_pagamento,
-				 			valor_liquido_pagamento,
+				 			valor_bruto_pagamento,
 				 			valor_taxas_pagamento,
-				 			valor_total_pagamento,
+				 			valor_liquido_pagamento,
 				 			id_contrato
 						  )  
 				VALUES 
@@ -58,9 +58,9 @@
 				 			'$this->condicao_pagamento',
 				 			'$this->dt_inicio_pagamento',
 				 			'$this->quant_parcelas_pagamento',
-				 			'$this->valor_liquido_pagamento',
+				 			'$this->valor_bruto_pagamento',
 				 			'$this->valor_taxas_pagamento',
-				 			'$this->valor_total_pagamento',
+				 			'$this->valor_liquido_pagamento',
 				 			'$this->id_contrato'
 					);
 			";
@@ -81,9 +81,9 @@
 					 t1.condicao_pagamento,
 					 t1.dt_inicio_pagamento,
 					 t1.quant_parcelas_pagamento,
-					 t1.valor_liquido_pagamento,
+					 t1.valor_bruto_pagamento,
 					 t1.valor_taxas_pagamento,
-					 t1.valor_total_pagamento,
+					 t1.valor_liquido_pagamento,
 					 t1.id_contrato
 				FROM
 					pagamento AS t1
@@ -111,9 +111,9 @@
 					 t1.condicao_pagamento,
 					 t1.dt_inicio_pagamento,
 					 t1.quant_parcelas_pagamento,
-					 t1.valor_liquido_pagamento,
+					 t1.valor_bruto_pagamento,
 					 t1.valor_taxas_pagamento,
-					 t1.valor_total_pagamento,
+					 t1.valor_liquido_pagamento,
 					 t1.id_contrato
 				FROM
 					pagamento AS t1
@@ -154,9 +154,9 @@
 					 t1.condicao_pagamento,
 					 t1.dt_inicio_pagamento,
 					 t1.quant_parcelas_pagamento,
-					 t1.valor_liquido_pagamento,
+					 t1.valor_bruto_pagamento,
 					 t1.valor_taxas_pagamento,
-					 t1.valor_total_pagamento,
+					 t1.valor_liquido_pagamento,
 					 t1.id_contrato
 				FROM
 					pagamento AS t1
@@ -183,9 +183,9 @@
 				  condicao_pagamento = '$this->condicao_pagamento',
 				  dt_inicio_pagamento = '$this->dt_inicio_pagamento',
 				  quant_parcelas_pagamento = '$this->quant_parcelas_pagamento',
-				  valor_liquido_pagamento = '$this->valor_liquido_pagamento',
+				  valor_bruto_pagamento = '$this->valor_bruto_pagamento',
 				  valor_taxas_pagamento = '$this->valor_taxas_pagamento',
-				  valor_total_pagamento = '$this->valor_total_pagamento',
+				  valor_liquido_pagamento = '$this->valor_liquido_pagamento',
 				  id_contrato = '$this->id_contrato'
 				
 				WHERE id_pagamento = '$this->id_pagamento';
@@ -239,9 +239,9 @@
 			$this->condicao_pagamento;
 			$this->dt_inicio_pagamento;
 			$this->quant_parcelas_pagamento;
-			$this->valor_liquido_pagamento;
+			$this->valor_bruto_pagamento;
 			$this->valor_taxas_pagamento;
-			$this->valor_total_pagamento;
+			$this->valor_liquido_pagamento;
 			$this->id_contrato;
 			
 			
@@ -254,9 +254,9 @@
 			$this->condicao_pagamento;
 			$this->dt_inicio_pagamento;
 			$this->quant_parcelas_pagamento;
-			$this->valor_liquido_pagamento;
+			$this->valor_bruto_pagamento;
 			$this->valor_taxas_pagamento;
-			$this->valor_total_pagamento;
+			$this->valor_liquido_pagamento;
 			$this->id_contrato;
 			
 			

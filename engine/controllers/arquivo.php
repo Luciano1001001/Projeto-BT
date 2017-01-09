@@ -5,22 +5,20 @@
 
 	//parte1
 	
-	$id_contrato = $_POST['id_contrato'];
-	$id_contratante = $_POST['id_contratante'];
-	$id_avalista = $_POST['id_avalista'];
+	$id_arquivo = $_POST['id_arquivo'];
 	$id_empresa = $_POST['id_empresa'];
-	$dt_contrato = $_POST['dt_contrato'];
-	$valor_contrato = $_POST['valor_contrato'];
-	$pacote_contrato = $_POST['pacote_contrato'];
-	$numero_contrato = $_POST['numero_contrato'];
+	$cod_arquivo = $_POST['cod_arquivo'];
+	$dt_geracao_arquivo = $_POST['dt_geracao_arquivo'];
+	$quant_lotes_arquivo = $_POST['quant_lotes_arquivo'];
+	$quant_registros_arquivo = $_POST['quant_registros_arquivo'];
 	
 	
 	//parte2
 	$action = $_POST['action'];
 	
 	//parte3
-	$Item = new Contrato();
-	$Item->SetValues($id_contrato, $id_contratante, $id_avalista, $id_empresa, $dt_contrato, $valor_contrato, $pacote_contrato, $numero_contrato); 
+	$Item = new Arquivo();
+	$Item->SetValues($id_arquivo, $id_empresa, $cod_arquivo, $dt_geracao_arquivo, $quant_lotes_arquivo, $quant_registros_arquivo); 
 	
 	
 		

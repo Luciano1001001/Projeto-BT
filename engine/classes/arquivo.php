@@ -1,32 +1,28 @@
 <?php
 	//Declaracao da classe
 	//Nome da classe devera ser o nome da tabela respectiva no banco de dados
-	class Contrato {
+	class Arquivo {
 		
 		//Variaveis da classe
 		//Nome das variaveis devem ser de acordo com as colunas da tabela respectiva no bd
-		private $id_contrato;
-		private $id_contratante;
-		private $id_avalista;
+		private $id_arquivo;
 		private $id_empresa;
-		private $dt_contrato;
-		private $valor_contrato;
-		private $pacote_contrato;
-		private $numero_contrato;
+		private $cod_arquivo;
+		private $dt_geracao_arquivo;
+		private $quant_lotes_arquivo;
+		private $quant_registros_arquivo;
 				
 
 		//setters
 		
 		//Funcao que seta uma instancia da classe
-		public function SetValues($id_contrato, $id_contratante, $id_avalista, $id_empresa, $dt_contrato, $valor_contrato, $pacote_contrato, $numero_contrato) { 
-			$this->id_contrato = $id_contrato;
-			$this->id_contratante = $id_contratante;
-			$this->id_avalista = $id_avalista;
+		public function SetValues($id_arquivo, $id_empresa, $cod_arquivo, $dt_geracao_arquivo, $quant_lotes_arquivo, $quant_registros_arquivo) { 
+			$this->id_arquivo = $id_arquivo;
 			$this->id_empresa = $id_empresa;
-			$this->dt_contrato = $dt_contrato;
-			$this->valor_contrato = $valor_contrato;
-			$this->pacote_contrato = $pacote_contrato;
-			$this->numero_contrato = $numero_contrato;
+			$this->cod_arquivo = $cod_arquivo;
+			$this->dt_geracao_arquivo = $dt_geracao_arquivo;
+			$this->quant_lotes_arquivo = $quant_lotes_arquivo;
+			$this->quant_registros_arquivo = $quant_registros_arquivo;
 						
 		}
 		
@@ -37,27 +33,23 @@
 		public function Create() {
 			
 			$sql = "
-				INSERT INTO contrato 
+				INSERT INTO arquivo 
 						  (
-				 			id_contrato,
-				 			id_contratante,
-				 			id_avalista,
+				 			id_arquivo,
 				 			id_empresa,
-				 			dt_contrato,
-				 			valor_contrato,
-				 			pacote_contrato,
-				 			numero_contrato
+				 			cod_arquivo,
+				 			dt_geracao_arquivo,
+				 			quant_lotes_arquivo,
+				 			quant_registros_arquivo
 						  )  
 				VALUES 
 					(
-				 			'$this->id_contrato',
-				 			'$this->id_contratante',
-				 			'$this->id_avalista',
+				 			'$this->id_arquivo',
 				 			'$this->id_empresa',
-				 			'$this->dt_contrato',
-				 			'$this->valor_contrato',
-				 			'$this->pacote_contrato',
-				 			'$this->numero_contrato'
+				 			'$this->cod_arquivo',
+				 			'$this->dt_geracao_arquivo',
+				 			'$this->quant_lotes_arquivo',
+				 			'$this->quant_registros_arquivo'
 					);
 			";
 			
@@ -72,18 +64,16 @@
 		public function Read($id) {
 			$sql = "
 				SELECT
-					 t1.id_contrato,
-					 t1.id_contratante,
-					 t1.id_avalista,
+					 t1.id_arquivo,
 					 t1.id_empresa,
-					 t1.dt_contrato,
-					 t1.valor_contrato,
-					 t1.pacote_contrato,
-					 t1.numero_contrato
+					 t1.cod_arquivo,
+					 t1.dt_geracao_arquivo,
+					 t1.quant_lotes_arquivo,
+					 t1.quant_registros_arquivo
 				FROM
-					contrato AS t1
+					arquivo AS t1
 				WHERE
-					t1.id_contrato  = '$id'
+					t1.id_arquivo  = '$id'
 
 			";
 			
@@ -101,16 +91,14 @@
 		public function ReadAll() {
 			$sql = "
 				SELECT
-					 t1.id_contrato,
-					 t1.id_contratante,
-					 t1.id_avalista,
+					 t1.id_arquivo,
 					 t1.id_empresa,
-					 t1.dt_contrato,
-					 t1.valor_contrato,
-					 t1.pacote_contrato,
-					 t1.numero_contrato
+					 t1.cod_arquivo,
+					 t1.dt_geracao_arquivo,
+					 t1.quant_lotes_arquivo,
+					 t1.quant_registros_arquivo
 				FROM
-					contrato AS t1
+					arquivo AS t1
 				
 
 			";
@@ -143,16 +131,14 @@
 		public function ReadAll_Paginacao($inicio, $registros) {
 			$sql = "
 				SELECT
-					 t1.id_contrato,
-					 t1.id_contratante,
-					 t1.id_avalista,
+					 t1.id_arquivo,
 					 t1.id_empresa,
-					 t1.dt_contrato,
-					 t1.valor_contrato,
-					 t1.pacote_contrato,
-					 t1.numero_contrato
+					 t1.cod_arquivo,
+					 t1.dt_geracao_arquivo,
+					 t1.quant_lotes_arquivo,
+					 t1.quant_registros_arquivo
 				FROM
-					contrato AS t1
+					arquivo AS t1
 					
 					
 				LIMIT $inicio, $registros;
@@ -170,17 +156,15 @@
 		//Funcao que atualiza uma instancia no BD
 		public function Update() {
 			$sql = "
-				UPDATE contrato SET
+				UPDATE arquivo SET
 				
-				  id_contratante = '$this->id_contratante',
-				  id_avalista = '$this->id_avalista',
 				  id_empresa = '$this->id_empresa',
-				  dt_contrato = '$this->dt_contrato',
-				  valor_contrato = '$this->valor_contrato',
-				  pacote_contrato = '$this->pacote_contrato',
-				  numero_contrato = '$this->numero_contrato'
+				  cod_arquivo = '$this->cod_arquivo',
+				  dt_geracao_arquivo = '$this->dt_geracao_arquivo',
+				  quant_lotes_arquivo = '$this->quant_lotes_arquivo',
+				  quant_registros_arquivo = '$this->quant_registros_arquivo'
 				
-				WHERE id_contrato = '$this->id_contrato';
+				WHERE id_arquivo = '$this->id_arquivo';
 				
 			";
 		
@@ -195,8 +179,8 @@
 		//Funcao que deleta uma instancia no BD
 		public function Delete() {
 			$sql = "
-				DELETE FROM contrato
-				WHERE id_contrato = '$this->id_contrato';
+				DELETE FROM arquivo
+				WHERE id_arquivo = '$this->id_arquivo';
 			";
 			$DB = new DB();
 			
@@ -226,28 +210,24 @@
 		//constructor 
 		
 		function __construct() { 
-			$this->id_contrato;
-			$this->id_contratante;
-			$this->id_avalista;
+			$this->id_arquivo;
 			$this->id_empresa;
-			$this->dt_contrato;
-			$this->valor_contrato;
-			$this->pacote_contrato;
-			$this->numero_contrato;
+			$this->cod_arquivo;
+			$this->dt_geracao_arquivo;
+			$this->quant_lotes_arquivo;
+			$this->quant_registros_arquivo;
 			
 			
 		}
 		
 		//destructor
 		function __destruct() {
-			$this->id_contrato;
-			$this->id_contratante;
-			$this->id_avalista;
+			$this->id_arquivo;
 			$this->id_empresa;
-			$this->dt_contrato;
-			$this->valor_contrato;
-			$this->pacote_contrato;
-			$this->numero_contrato;
+			$this->cod_arquivo;
+			$this->dt_geracao_arquivo;
+			$this->quant_lotes_arquivo;
+			$this->quant_registros_arquivo;
 			
 			
 		}
